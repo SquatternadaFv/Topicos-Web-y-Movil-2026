@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Seguimiento {{ folio }}</title></head>
+<body>
+  <h1>Pedido {{ folio }}</h1>
+
+  <!-- "Mapa": un recuadro. No consulta la base; solo pinta lo que
+       la vista ya le dio en el contexto. -->
+  <div style="width:300px;height:180px;border:1px solid #333;
+              display:flex;align-items:center;justify-content:center;">
+    Mapa (placeholder) — medio: {{ medio }}
+  </div>
+
+  <p>Estado: {{ estado }}</p>
+  <p>ETA: {{ eta }} minutos</p>
+</body>
+</html>

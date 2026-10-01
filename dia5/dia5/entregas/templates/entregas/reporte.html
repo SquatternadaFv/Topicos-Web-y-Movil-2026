@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Reporte de pedidos</title></head>
+<body>
+  <h1>Reporte de gerencia</h1>
+  <!-- Mismo dato que el seguimiento (contexto_pedido); ningún SELECT
+       nuevo se escribió para esta pantalla. -->
+  <table border="1" cellpadding="6">
+    <tr><th>Folio</th><th>Estado</th><th>Medio</th><th>ETA</th></tr>
+    {% for p in pedidos %}
+    <tr>
+      <td>{{ p.folio }}</td>
+      <td>{{ p.estado }}</td>
+      <td>{{ p.medio }}</td>
+      <td>{{ p.eta }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

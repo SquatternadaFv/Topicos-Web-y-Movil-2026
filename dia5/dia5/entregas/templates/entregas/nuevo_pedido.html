@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Nuevo pedido</title></head>
+<body>
+  <h1>Nuevo pedido</h1>
+  <form method="post">
+    {% csrf_token %}
+    <label>Origen <input name="origen" value="Bodega central"></label><br>
+    <label>Destino <input name="destino" value="Cliente"></label><br>
+    <label>Peso (kg) <input name="peso_kg" type="number" step="0.1" value="1.5"></label><br>
+    <label>Distancia (km) <input name="distancia_km" type="number" step="0.1" value="8"></label><br>
+    <button type="submit">Registrar</button>
+  </form>
+</body>
+</html>

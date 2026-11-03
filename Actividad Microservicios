@@ -1,0 +1,165 @@
+# Microservicios, gateway y el monolito con API
+
+**Eduardo Osvaldo Rodríguez Gutiérrez | Matrícula: 22121280**
+
+Tópicos Selectos de Tecnologías Web y Móvil
+
+Docente: Eduardo Alcaraz | 3 de noviembre de 2026
+
+Resolución razonada de los 10 reactivos del archivo proporcionado. Los diseños y cálculos se desarrollan a partir de sus escenarios; cuando falta una condición, se declara el supuesto. No se afirma haber realizado pruebas de laboratorio ni se atribuyen ejemplos a una clase no documentada.
+
+## 1. La frase del compañero
+
+**a) API y Docker resuelven problemas distintos.** Con la API cree separar al cliente del servidor: esa parte tiene sentido si hay un contrato de comunicación que permite cambiar clientes sin conocer la implementación interna. Se equivoca si interpreta que la API divide automáticamente el servidor o elimina todo acoplamiento. Con Docker cree separar servidores entre sí, pero un contenedor solo empaqueta y ejecuta la aplicación en un entorno aislado; puede contener el mismo monolito completo.
+
+**b) Contraejemplo mínimo.** Un proyecto Django con módulos de usuarios, pedidos y recomendaciones, que expone JSON y se ejecuta completo en un contenedor, sigue siendo monolítico si esos módulos se publican como una unidad. Un cambio en Recomendar obliga a desplegar otra vez toda la aplicación. Para introducir microservicios separaría, por ejemplo, Pedidos y Recomendar en procesos con contratos y despliegues independientes. Cada servicio debe controlar sus datos; no debe depender de modificar directamente las tablas privadas del otro.
+
+**c) Lectura de la frase.** La interpreto como una explicación de límites de responsabilidad, proceso y despliegue. REST y Docker pueden ayudar a implementarlos, pero no son la definición de microservicios. Dos procesos distintos tampoco bastan si siempre deben cambiar y desplegarse juntos: habría separación física, pero poca autonomía. Esta defensa se apoya en el enunciado; no presupone apuntes adicionales de clase.
+
+## 2. Tres rutas, una trampa
+
+**a) Rutas frente a réplicas.** Las rutas organizan operaciones accesibles por HTTP; no crean servicios independientes. Las réplicas ejecutan varias copias del mismo programa para repartir carga y tolerar algunas caídas; no separan responsabilidades. Tres réplicas pueden seguir siendo tres copias del monolito. Tampoco garantizan alta disponibilidad: hacen falta distribución de tráfico, comprobaciones de salud y atención a dependencias y al host compartido. Además, fijar el mismo puerto del host 8000 para tres contenedores en el mismo host genera un conflicto; conviene publicar un balanceador y usar puertos internos para las réplicas.
+
+**b) Caída durante el POST.** La arquitectura sigue siendo monolítica: falló una copia, no cambió el límite de despliegue. El pedido pudo persistirse antes de perderse la respuesta. Repetir el POST sin una clave de idempotencia puede duplicarlo; otra réplica no recupera automáticamente la petición en curso.
+
+**c) Rediseño en palabras.** Definiría usuarios para identidades, pedidos para validar y guardar pedidos y recomendar para ejecutar el modelo. Cada uno tendría su proceso, configuración y despliegue. Para este diseño elegiría tres imágenes de aplicación distintas, una por responsabilidad; sus réplicas reutilizan la imagen correspondiente. Un gateway opcional añadiría otra imagen. La precisión es que no existe un mínimo universal de imágenes distintas: una misma imagen puede arrancar servicios diferentes con distintos comandos. Lo decisivo es la autonomía, no contar imágenes.
+
+## 3. El gateway que hace de más
+
+**a) Clasificación.** Tiene funciones de gateway, como validar JWT, pero el conjunto es una aplicación monolítica que también hace de gateway. En la analogía del recepcionista, además de recibir y dirigir personas, decide el transporte, registra pedidos y entrega la correspondencia. Mezcla borde, logística, inferencia y notificaciones. Servir HTML en el borde es válido; concentrar allí el negocio es el problema.
+
+**b) Tres consecuencias.** 1. Reentrenar y publicar el modelo obliga a modificar o reiniciar la misma unidad que recibe tráfico y guarda pedidos, con riesgo de indisponibilidad.
+
+2. Si el correo falla y se espera su respuesta sin límites, se retrasa la creación del pedido; si ya se guardó y el cliente reintenta, puede duplicarse.
+
+3. El modelo pesado compite por memoria y CPU con el gateway y Pedidos; no se puede escalar la inferencia por separado y un fallo por memoria puede tumbar todo el contenedor.
+
+**c) Separación mínima útil.** En el borde queda gateway: entrada pública, HTML, autenticación, límites de peticiones y enrutamiento. Detrás queda pedidos: reglas logísticas, folio, persistencia y decisión de aplicar plan B; recomendar: carga del .joblib e inferencia. Para aislar el correo añadiría un trabajador de avisos detrás del borde, que consume trabajos persistidos y reintenta sin bloquear la respuesta. Una tabla de salida transaccional en Pedidos puede registrar el aviso junto con el pedido y evita perderlo entre guardar y notificar. Así son tres servicios principales y un trabajador adicional justificado por los fallos del correo.
+
+## 4. Localhost, la trampa favorita
+
+**a) Por qué falla.** Con la red habitual de Compose, 127.0.0.1 es el loopback del contenedor de Pedidos. La conexión busca un proceso escuchando en el puerto 8002 dentro de ese mismo entorno de red; no salta al contenedor de Recomendar ni a la laptop anfitriona. Si allí no hay un servidor escuchando, falla aunque Recomendar esté sano. No es la dirección de un proceso particular: identifica una interfaz local.
+
+**b) Nombre del servicio.** http://recomendar:8002 puede funcionar porque Compose registra el nombre del servicio en el DNS interno de Docker. Ambos contenedores deben compartir una red y Recomendar debe escuchar en el puerto interno 8002, sobre una interfaz accesible, por ejemplo 0.0.0.0. Si la publicación fuera 8002:5000, entre contenedores se usaría recomendar:5000. El nombre no se resuelve automáticamente desde cualquier laptop.
+
+**c) Otra laptop.** Configuraría RECOMENDAR_URL=http://192.168.0.57:8002, suponiendo que 8002 es el puerto accesible de esa laptop; la ruta /sugerir se agrega según el contrato.
+
+**Condición 1:** debe existir conectividad entre las laptops, sin aislamiento de clientes y con la IP correcta.
+
+**Condición 2:** el servidor debe escuchar en la interfaz de red y el firewall permitir TCP 8002; si usa Docker, el puerto debe publicarse hacia la red local.
+
+Cambiar únicamente la URL no corrige un servidor limitado a localhost, un puerto cerrado, una IP que cambió o una ruta HTTP incorrecta.
+
+**Fundamento de red:** Docker documenta el descubrimiento por nombre de servicio y la distinción entre puerto del host y puerto del contenedor. Véase la referencia 1.
+
+## 5. Fallo parcial con números
+
+**a) Tiempo normal.** El cliente espera aproximadamente 205 ms: 200 ms de Recomendar + 5 ms del gateway, más el trabajo de Pedidos y de red que no se cuantifica. El timeout de 3 s es un límite de espera ante falta de respuesta, no un retraso obligatorio en cada petición. Recomendar domina la latencia normal.
+
+**b) Tiempo con plan B.** El cliente ve un pedido creado y HTTP 200, como estipula el escenario, siempre que la persistencia haya funcionado. Pero espera aproximadamente 3,055 s: 3 s hasta detectar el timeout + 50 ms del plan B + 5 ms del gateway. Esos 50 ms no borran la espera previa. Se acepta un transporte quizá menos óptimo para conservar el servicio; el pedido debe registrar que se usó el valor de respaldo. La moto solo sirve si cumple las restricciones del envío; si no, se requiere otro respaldo válido o dejar la decisión pendiente.
+
+| Situación | Cálculo con los datos dados | Resultado aproximado |
+| --- | --- | --- |
+| Recomendar responde | 200 + 5 ms | 205 ms |
+| Recomendar agota el timeout | 3.000 + 50 + 5 ms | 3.055 ms |
+| Promedio ilustrativo | 0,95 × 205 + 0,05 × 3.055 | 347,5 ms |
+
+Para el promedio se supone que las solicitudes llegan uniformemente y que el 5 % del tiempo caído equivale aproximadamente al 5 % de peticiones afectadas: unas 50 de 1.000. El porcentaje temporal por sí solo no garantiza esa proporción si las llegadas se concentran durante la caída.
+
+**c) Diez reintentos no garantizan recuperación.** Con 10 reintentos además del primer intento podrían consumirse unos 33 s solo en timeouts de 3 s; si se cuentan 10 intentos totales, unos 30 s. Una caída de 10 minutos supera ambos plazos. Con tráfico uniforme llegarían unas 167 solicitudes en esos 10 minutos y cada una multiplicaría llamadas fallidas. Aumentan las solicitudes en vuelo y la ocupación de conexiones y trabajadores; si se agota la capacidad aparecen cola, rechazos o timeouts del gateway. Con el promedio dado no puede afirmarse que necesariamente habrá saturación: falta conocer la capacidad y las ráfagas.
+
+El plan B puede ser mejor cuando ofrece una decisión válida y un tiempo acotado. Un reintento breve puede convenir ante fallos transitorios, dentro de un presupuesto total de latencia, con espera creciente y variación aleatoria. Un circuito abierto evita insistir contra una dependencia que sigue caída. Si se repite una operación que crea pedidos, debe protegerse con idempotencia. Véase la referencia 3 para el criterio general de reintentos limitados.
+
+## 6. Apagan el edificio equivocado
+
+**Supuesto:** el gateway publica el puerto 8080 y sirve el HTML; Pedidos guarda el pedido y llama a Recomendar con timeout y respaldo. Cada experimento parte del sistema sano.
+
+| Se detiene | Qué ve el navegador | Qué sigue vivo por dentro |
+| --- | --- | --- |
+| Gateway | Al recargar no obtiene la página: conexión rechazada o fallida, según la red. Un HTML ya cargado puede seguir visible, pero no enviar pedidos por ese borde. | Pedidos y Recomendar. Un cliente interno puede hablar con Pedidos y este con Recomendar. |
+| Pedidos | La página estática puede cargar. Al crear el pedido falla el destino; el gateway normalmente devuelve 502 o 503 según su configuración. | Gateway y Recomendar. Recomendar puede seguir atendiendo inferencias internas. |
+| Recomendar | La página carga. Crear pedido funciona con el respaldo de Pedidos. Un rechazo de conexión puede activar el respaldo antes del timeout de 3 s. | Gateway y Pedidos. Se guardan pedidos si las demás dependencias funcionan. |
+
+Al apagar el gateway el sistema parece más muerto hacia afuera: desaparece la puerta pública aunque los dos servicios de negocio sigan arriba. El borde concentra el acceso y debe tener una estrategia de disponibilidad; su caída no demuestra que todos los servicios internos hayan fallado.
+
+## 7. WiFi del salón, conflicto de roles
+
+**a) Dos puertas sin coordinación.** El problema no es tener dos instancias de gateway: eso puede ser una buena medida de disponibilidad. El defecto es que el cliente alterna manualmente entre dos direcciones sin una entrada lógica estable ni garantías de configuración equivalente. Ana y Diana podrían aplicar reglas de autenticación, límites, rutas o versiones de HTML distintas y causar resultados inconsistentes aunque ambas devuelvan 200. Para una redundancia real usaría un punto de entrada común y selección de instancias sanas, con configuración sincronizada. Diana por sí sola no crea ese mecanismo.
+
+**b) Recomendar en la laptop de Carla.** localhost en Beto sigue apuntando al entorno local de Pedidos. Configuraría RECOMENDAR_URL=http://IP_DE_CARLA:8002, usando la IP real y el puerto publicado por Carla, y actualizaría la configuración del proceso o contenedor de Pedidos. Carla debe escuchar en una interfaz accesible y permitir el puerto. Ana y Diana encaminan el POST a Beto; Beto consulta a Carla. No hace falta reunir los servicios en una laptop.
+
+**c) Aislamiento del campus.** Si el aislamiento impide la comunicación TCP entre alumnos, la práctica repartida no funciona tal cual. Que ping falle por sí solo no lo prueba: podrían bloquearse únicamente mensajes ICMP; comprobaría también el puerto HTTP. Si se confirma el aislamiento, usaría una sola laptop con Compose y tres contenedores separados en una red interna, publicando únicamente el gateway. Se preserva la lección de procesos distintos, contratos por red y fallos parciales, aunque ya no haya distribución física entre equipos.
+
+## 8. El front que conoce demasiado
+
+**a) Tres problemas concretos.** 1. **Seguridad:** publicar los servicios permite eludir las políticas del gateway si no se aplican controles equivalentes; además amplía la superficie pública.
+
+2. **Acoplamiento de red:** el HTML conoce dos IP y puertos. Mover un servicio obliga a cambiar el front y pueden aparecer restricciones CORS. CORS no sustituye autenticación.
+
+3. **Consistencia y coordinación:** se traslada al navegador el orden de llamadas, los timeouts y el respaldo. Si Recomendar funciona y Pedidos falla, no existe un pedido confirmado; un reenvío puede duplicarlo o asociar una recomendación a datos de carrito distintos. El cliente tampoco debe poder imponer sin validación una decisión de transporte.
+
+**b) Secuencia correcta.** El navegador envía una sola petición POST /api/pedidos al gateway, con el carrito y el selector de modelo. El gateway autentica, limita y enruta a Pedidos. Pedidos valida los datos y el selector permitido, consulta a Recomendar y aplica respaldo si corresponde. Después guarda un único pedido con su folio y devuelve el resultado por el gateway. Pedidos habla con Recomendar porque es dueño de la operación y debe garantizar sus reglas incluso cuando falla una dependencia. El gateway no necesita asumir esa lógica de negocio.
+
+**c) Dueño del folio.** Pedidos debe generar y persistir el folio canónico, tanto si la recomendación llegó como si se usó respaldo. Recomendar devuelve una sugerencia, el modelo y su versión; puede tener un identificador técnico de inferencia, que no equivale a crear un pedido. La invariante es: una solicitud lógica aceptada corresponde a un solo pedido y un solo folio, y su transporte se refiere a los datos de ese pedido. Si ambos servicios crean pedidos o folios de negocio, aparecen identidades divergentes y duplicación de reglas. Una clave de idempotencia permite reconocer reenvíos del mismo intento sin crear otro pedido.
+
+**Criterio del diseño:** el gateway ofrece una entrada estable y oculta la ubicación interna; la propiedad del pedido permanece en Pedidos. Véase la referencia 2 para el patrón general.
+
+## 9. El LLM vendedor
+
+**a) Nombre y corte incorrectos.** El nombre cerebro describe una técnica de forma vaga, no una responsabilidad de negocio. Mezcla logística, que selecciona el medio de transporte, y contenido comercial, que redacta un argumento de venta. Tienen clientes, costos, fallos y necesidades de latencia distintos. Si /inteligente espera ambas operaciones, una generación de 8 s impide que el despacho termine en menos de 500 ms aunque el árbol tarde 200 ms. Cambiar de modelo o proveedor de textos también afectaría innecesariamente al despliegue logístico.
+
+**b) Dos contratos con consumidores distintos.** Propondría dos servicios detrás del gateway. No es obligatorio separarlos físicamente desde el primer día, pero la separación contractual permite hacerlo sin mezclar el flujo del pedido con la redacción de la ficha.
+
+| Endpoint | Responsabilidad y consumidor | Comportamiento ante fallo |
+| --- | --- | --- |
+| POST /api/productos/pitch | El front de tienda solicita al servicio de contenido comercial un texto a partir de datos validados del producto. | Timeout definido; texto básico o previamente aprobado como respaldo. La ficha puede mostrarse mientras llega el texto. |
+| POST /sugerir, interno | Pedidos solicita al servicio Recomendar el medio de transporte con datos del envío y el selector de modelo permitido. | Respuesta acotada y respaldo logístico válido. No espera a que el LLM termine. |
+
+El consumidor de /sugerir es Pedidos, no el navegador. La llamada del usuario para comprar continúa siendo POST /api/pedidos al gateway. El texto promocional se solicita durante la consulta de la ficha, puede almacenarse en caché por producto y versión y no debe convertirse en una dependencia para registrar el pedido.
+
+**c) GPU y cambio de proveedor.** El front apunta al gateway, por ejemplo mediante una ruta relativa /api/productos/pitch del mismo sitio. El gateway enruta al servicio de contenido comercial, y este usa un adaptador para consultar el servidor GPU. La dirección externa vive una sola vez en la configuración de ese servicio, por ejemplo LLM_BASE_URL en su entorno de despliegue; las credenciales permanecen del lado servidor.
+
+Si mañana solo cambia el host de un proveedor compatible, se modifica LLM_BASE_URL y se recarga el servicio correspondiente. Si cambia también el formato de la API o la autenticación, habrá que modificar el adaptador: una URL no resuelve diferencias de contrato. En ambos casos el front conserva la misma ruta pública y Pedidos no depende de ese cambio.
+
+## Separar responsabilidad también significa separar esperas
+
+La logística necesita una decisión rápida y válida para completar una operación de negocio. El contenido comercial puede generarse con otro presupuesto de tiempo o por anticipado. Mantener esos tiempos separados evita que un recurso GPU remoto determine la disponibilidad del despacho.
+
+## 10. El inversionista y la semana imposible
+
+**a) Respuesta al inversionista (6 líneas).** Propongo proteger y estabilizar primero el flujo público que ya funciona.
+
+Con cinco personas, dividir todo el panel en siete días eleva el riesgo operativo.
+
+El panel tiene poco tráfico y hoy no presenta una necesidad demostrada de separación.
+
+Una división apresurada puede romper permisos, datos y despliegues sin mejorar el servicio.
+
+Esta semana entregaría seguridad en el gateway y reentrenamiento aislado de Pedidos.
+
+Acordemos una migración por etapas, con métricas y reversión, en lugar de prometer seis servicios sin validar.
+
+**b) Orden para esta semana.** Mi prioridad es **3 → 2 → 1 → 4**, suponiendo que no hay un incidente activo por reentrenamiento y que el gateway ya está expuesto públicamente.
+
+| Prioridad | Iniciativa | Justificación |
+| --- | --- | --- |
+| 1 | 3. Auth + rate limit en el gateway | La entrada pública necesita controlar identidad y abuso. Las autorizaciones de negocio deben comprobarse también en el servicio responsable. |
+| 2 | 2. Pipeline de reentrenamiento aislado | Permite entrenar y validar una nueva versión del modelo sin detener Pedidos. Publicaría el artefacto de forma controlada y conservaría una versión anterior para revertir. |
+| 3 | 1. Partir el panel en seis servicios | Se pospone: funciona con poco tráfico y no se ha demostrado un cuello de botella. Antes mediría el módulo que necesita autonomía; no impondría seis cortes. |
+| 4 | 4. LLM en producción sin timeout ni respaldo | No se ejecuta en esas condiciones. Es una función nueva y agrega una dependencia sin límites. Primero requiere pruebas, presupuesto de latencia y una salida de respaldo. |
+
+Estar tercero en la lista no significa que deba terminarse esta semana. Si el reentrenamiento estuviera causando caídas de pedidos en ese momento, lo atendería primero por tratarse de un incidente activo y ajustaría el orden con esa evidencia.
+
+**c) Una métrica observable.** Mediría el **porcentaje de despliegues del panel que superan un p95 de 1 s en pedidos durante más de cinco minutos por trabajo del módulo de reportes**. Como umbral inicial acordado, si ocurre en al menos el 20 % de los despliegues durante cuatro semanas y trazas y métricas confirman esa causa, evaluaría extraer reportes. Primero compararía el costo de separarlo con optimizar consultas o mover el trabajo a un trabajador. La métrica evidencia una necesidad; no obliga por sí sola a adoptar microservicios.
+
+**d) Frase propia.** Los microservicios son una herramienta para aislar responsabilidades y cambios; el objetivo es que el sistema cumpla mejor su trabajo.
+
+## Referencias técnicas de apoyo
+
+El razonamiento aplica los datos del examen. Estas fuentes oficiales apoyan conceptos puntuales de red, gateway y reintentos; no sustituyen los argumentos de cada escenario. Consulta: 3 de noviembre de 2026.
+
+[1. Docker Docs. Networking in Compose.](https://docs.docker.com/compose/how-tos/networking/)
+
+[2. Microsoft Learn. The API gateway pattern versus direct client-to-microservice communication.](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern)
+
+[3. Microsoft Learn. Retry pattern.](https://learn.microsoft.com/en-us/azure/architecture/patterns/retry)

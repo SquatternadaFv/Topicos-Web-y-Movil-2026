@@ -30,3 +30,44 @@ Predicciones previas: [PREDICCIONES.md](PREDICCIONES.md). Código propio: `../..
 | moto | 0.3400 | 10.6300 | 39.9000 | 0.1000 | 2.5800 | 24.9300 | 0.3000 | 11.2750 | 89.9900 |
 
 **Comparación y preguntas.** Hay 0 etiquetas imposibles de 10000. En periferia aparecen 18 bicicletas; las distancias de esas filas están entre 5.38 y 6.93 km. La distancia explica la asociación sin inventar una prohibición por zona. Hay 107 camionetas a menos de 2 km y 95 no tienen otra alternativa factible. Las restantes pueden deberse a refrigeración, riesgos, costo/tiempo o ruido: se examinan las filas, no se atribuye todo al azar. Dron está prohibido con lluvia, viento fuerte y en el centro; en rural la distancia puede excluirlo aunque no haya prohibición por zona. Los máximos sugieren límites, pero observar un máximo menor no prueba una restricción contractual. **Decisión:** reconstruir reglas solo del CSV confunde ausencia de ejemplos con imposibilidad. Conservar restricciones explícitas y verificarlas antes de operar.
+
+
+## Actividad 2 — La hora y el dron
+
+| hora_salida | bicicleta | camioneta | dron | moto |
+| --- | --- | --- | --- | --- |
+| 0 | 2 | 12 | 0 | 63 |
+| 1 | 6 | 11 | 0 | 49 |
+| 2 | 5 | 19 | 0 | 59 |
+| 3 | 4 | 13 | 0 | 60 |
+| 4 | 2 | 10 | 0 | 47 |
+| 5 | 8 | 25 | 0 | 116 |
+| 6 | 94 | 50 | 33 | 136 |
+| 7 | 204 | 92 | 68 | 233 |
+| 8 | 205 | 118 | 57 | 252 |
+| 9 | 187 | 97 | 65 | 279 |
+| 10 | 192 | 123 | 68 | 273 |
+| 11 | 178 | 107 | 72 | 283 |
+| 12 | 217 | 111 | 82 | 297 |
+| 13 | 211 | 112 | 70 | 284 |
+| 14 | 204 | 103 | 72 | 274 |
+| 15 | 199 | 122 | 81 | 303 |
+| 16 | 213 | 108 | 59 | 260 |
+| 17 | 192 | 97 | 69 | 292 |
+| 18 | 162 | 97 | 72 | 248 |
+| 19 | 166 | 78 | 45 | 199 |
+| 20 | 115 | 72 | 35 | 160 |
+| 21 | 20 | 58 | 0 | 240 |
+| 22 | 5 | 28 | 0 | 116 |
+| 23 | 5 | 15 | 0 | 55 |
+
+| version | exactitud | precision_dron | recall_dron | predice_dron | imposibles |
+| --- | --- | --- | --- | --- | --- |
+| sin columna | 0.9210 | 0.8390 | 0.9053 | 205 | 31 |
+| es_de_noche | 0.9295 | 0.9101 | 0.9053 | 189 | 14 |
+
+**Conteo del ejercicio sobre las 10 000 filas (no es una métrica de generalización):** sin columna 121; con es_de_noche 89. La tabla anterior usa exclusivamente la prueba de 2 000 filas.
+
+**Comparación.** La noche representa 10.53%: 1053 filas frente a 8947 diurnas. La tabla permite contrastar las horas sin dron con el intervalo legal 6–20. El generador penaliza a la bicicleta de noche y modifica el tráfico por hora; no es una prohibición absoluta de bicicleta. Representar noche con umbrales requiere separar hora < 6 de hora >= 21, al menos dos comparaciones. **Decisión:** conservar es_de_noche si mejora los imposibles y métricas en prueba, no solo exactitud. La predicción previa se contrasta con la fila calculada; si no mejora, no se fuerza la conclusión.
+
+![Envíos por hora](resultados/02_horas.png)

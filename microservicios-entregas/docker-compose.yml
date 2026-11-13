@@ -1,0 +1,21 @@
+services:
+  recomendar:
+    build:
+      context: ..
+      dockerfile: microservicios-entregas/recomendar/Dockerfile
+  pedidos:
+    build: ./pedidos
+    environment:
+      RECOMENDAR_URL: http://recomendar:8002
+    depends_on:
+      - recomendar
+  gateway:
+    image: nginx:1.27-alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./gateway/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./gateway/html:/usr/share/nginx/html:ro
+    depends_on:
+      - pedidos
+      - recomendar

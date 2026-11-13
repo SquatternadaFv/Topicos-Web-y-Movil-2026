@@ -1,0 +1,16 @@
+Registro resumido de las ejecuciones realizadas el 13/11/2026.
+No es una transcripción completa del terminal.
+
+SDK: Flutter 3.47.9, Dart 3.13.7.
+flutter pub get: dependencias resueltas; http 1.6.0, lockfile guardado.
+dart fix --apply: corrigió cuatro avisos de llaves en el código nuevo.
+flutter analyze: No issues found.
+flutter test: +1 All tests passed; conserva contador al cambiar de sección.
+flutter build web --release --no-web-resources-cdn --dart-define=API_BASE=http://127.0.0.1:8000: Built build/web.
+La build se sirvió localmente y se capturó consumiendo Django en 06-flutter-api.png.
+
+flutter build apk --debug --dart-define=API_BASE=http://10.0.2.2:8000:
+Gradle inició la instalación de NDK 28.2.13676358, cuya descarga permaneció sin avance.
+Se interrumpió ese intento. No hay un APK final verificado.
+
+Docker del front: Dockerfile preparado; no ejecutado, porque no hay Docker instalado.

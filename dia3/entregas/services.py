@@ -5,6 +5,8 @@ Día 3: ahora orquesta Adapter (IA) → Factory simple → Strategy
 route_hint.
 """
 
+from entregas.ia import crear_recomendador_ia
+
 from entregas.fabrica import crear_medio
 from entregas.ia import AdaptadorIAFalsa, RecomendadorIA
 from entregas.medios import ContextoViaje
@@ -18,7 +20,7 @@ def registrar_pedido(
     distancia_km: float,
     recomendador: RecomendadorIA | None = None,
 ) -> Pedido:
-    recomendador = recomendador or AdaptadorIAFalsa()
+    recomendador = recomendador or crear_recomendador_ia()
 
     # Adapter: el dominio recibe Sugerencia(medio, motivo), nunca JSON crudo.
     sugerencia = recomendador.sugerir(peso_kg=peso_kg, distancia_km=distancia_km)

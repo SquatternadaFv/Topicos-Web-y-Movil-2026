@@ -6,6 +6,8 @@ lugar de él. Si la IA no responde, el alta no se cae: se usa un medio
 por defecto y se sigue de largo.
 """
 
+from entregas.ia import crear_recomendador_ia
+
 from decimal import Decimal
 
 from django.db import transaction
@@ -41,7 +43,7 @@ def registrar_pedido(
     distancia_km: float,
     recomendador: RecomendadorIA | None = None,
 ) -> Pedido:
-    recomendador = recomendador or AdaptadorIAFalsa()
+    recomendador = recomendador or crear_recomendador_ia()
 
     # Adapter (con manejo del colaborador caído).
     sugerencia = _sugerir_medio(recomendador, peso_kg, distancia_km)

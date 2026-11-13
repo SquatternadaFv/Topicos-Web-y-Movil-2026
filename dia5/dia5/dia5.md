@@ -45,3 +45,8 @@ El guion es material para revisar y ensayar con los cinco integrantes; no acredi
 - [Django 5.2: JsonResponse](https://docs.djangoproject.com/en/5.2/ref/request-response/#jsonresponse-objects).
 - [Django 5.2: transacciones y on_commit](https://docs.djangoproject.com/en/5.2/topics/db/transactions/#performing-actions-after-commit).
 - Carpetas `dia1` a `dia4` del ZIP proporcionado, especialmente `dia4.md`, `views.py`, `repository.py` y `services.py`.
+
+
+## Complemento XML
+
+`AdaptadorXML` traduce vehicle/reason al mismo Sugerencia. `PROVEEDOR_IA=xml` selecciona ese proveedor sin cambiar la vista ni las estrategias; json es el valor predeterminado. El proveedor JSON conserva route_hint/score y reason_code. Son proveedores simulados, no llamadas pagadas.

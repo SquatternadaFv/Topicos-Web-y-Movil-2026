@@ -19,3 +19,8 @@ Objetivo: inconvenientes 3, 4 y 6 del enunciado.
 ## Vecino que no es
 
 Un compañero podría decir "esto ya lo resuelve Observer, avisando dos veces no importa". No: Observer resuelve *quién se entera*, no *si el cobro se duplicó*. El problema del doble clic es de **Unit of Work + idempotencia**, no de aviso.
+
+
+## Complemento XML
+
+`AdaptadorXML` traduce vehicle/reason al mismo Sugerencia. `PROVEEDOR_IA=xml` selecciona ese proveedor sin cambiar la vista ni las estrategias; json es el valor predeterminado. El proveedor JSON conserva route_hint/score y reason_code. Son proveedores simulados, no llamadas pagadas.

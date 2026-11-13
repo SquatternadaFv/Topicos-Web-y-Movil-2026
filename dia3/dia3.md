@@ -19,3 +19,8 @@ Objetivo: el inconveniente 2 del enunciado, con las definiciones de
 ## Por qué no Factory Method
 
 Factory Method tiene sentido cuando una clase con oficio (p. ej. `Logistica.despachar`) tiene subclases que redefinen `crearMedio()` — logística terrestre frente a aérea. Aquí no hay esa familia: un único trámite recibe un string y pide el objeto. Montar `Logistica`/`LogisticaAerea` sería ceremonia para un solo algoritmo de creación.
+
+
+## Complemento XML
+
+`AdaptadorXML` traduce vehicle/reason al mismo Sugerencia. `PROVEEDOR_IA=xml` selecciona ese proveedor sin cambiar la vista ni las estrategias; json es el valor predeterminado. El proveedor JSON conserva route_hint/score y reason_code. Son proveedores simulados, no llamadas pagadas.

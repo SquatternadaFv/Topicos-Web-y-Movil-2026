@@ -1,5 +1,7 @@
 ## Examen Diagnóstico - Fundamentos de Ingeniería de Software Instituto Tecnológico de Morelia
 
+Complemento posterior de respuestas incompletas y precisiones: [diagnostico_complemento.md](actividades/diagnostico_complemento.md). Se conserva abajo la respuesta original.
+
 ## Materia: Tópicos Selectos de Tecnologías Web y Móvil Profesor: Jesús Eduardo Alcaraz Chávez
 
 Nombre del alumno: __Eduardo Osvaldo Rodríguez Gutiérrez__ Fecha: 27 de agosto de 2026

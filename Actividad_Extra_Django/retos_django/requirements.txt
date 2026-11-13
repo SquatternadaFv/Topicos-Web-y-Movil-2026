@@ -1,0 +1,11 @@
+Django==5.2.19
+asgiref==3.13.0
+sqlparse==0.6.1
+gunicorn==27.0.1
+packaging==26.3
+psycopg[binary]==3.3.9
+typing_extensions==4.16.0
+pandas==3.1.1
+numpy==2.5.4
+scikit-learn==1.9.1
+joblib==1.6.0

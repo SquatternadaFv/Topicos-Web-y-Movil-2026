@@ -1,0 +1,29 @@
+Creating test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+Found 9 test(s).
+Operations to perform:
+  Synchronize unmigrated apps: staticfiles
+  Apply all migrations: contenttypes, entregas, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying entregas.0001_initial... OK
+  Applying sessions.0001_initial...test_datos_invalidos_son_400_json (entregas.tests.CotizacionTests.test_datos_invalidos_son_400_json) ... ok
+test_limites_y_prioridad (entregas.tests.CotizacionTests.test_limites_y_prioridad) ... ok
+test_post_no_admitido (entregas.tests.CotizacionTests.test_post_no_admitido) ... ok
+test_respuesta_correcta (entregas.tests.CotizacionTests.test_respuesta_correcta) ... ok
+test_pedido_existente_disponible_en_html_y_json (entregas.tests.ProyectoAnteriorTests.test_pedido_existente_disponible_en_html_y_json) ... ok
+test_folio_aislado_por_usuario (entregas.tests.SesionTests.test_folio_aislado_por_usuario) ... ok
+test_folio_vacio_es_400 (entregas.tests.SesionTests.test_folio_vacio_es_400) ... ok
+test_modo_global_demostrativo (entregas.tests.SesionTests.test_modo_global_demostrativo) ... ok
+test_visitas_con_cookie (entregas.tests.SesionTests.test_visitas_con_cookie) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.019s
+
+OK
+Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+ OK
+System check identified no issues (0 silenced).

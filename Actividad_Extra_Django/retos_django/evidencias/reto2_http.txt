@@ -1,0 +1,23 @@
+GET http://127.0.0.1:8000/entregas/cotizar/?km=5&kg=2
+HTTP 200
+{"km": 5.0, "kg": 2.0, "medio": "bicicleta", "motivo": "distancia corta y paquete de hasta 5 kg"}
+
+GET http://127.0.0.1:8000/entregas/cotizar/?kg=2
+HTTP 400
+{"error": "Falta el parámetro km."}
+
+GET http://127.0.0.1:8000/entregas/cotizar/?km=abc&kg=2
+HTTP 400
+{"error": "km debe ser un número válido."}
+
+GET http://127.0.0.1:8000/entregas/cotizar/?km=-1&kg=2
+HTTP 400
+{"error": "km no puede ser negativo."}
+
+GET http://127.0.0.1:8000/entregas/cotizar/?km=NaN&kg=2
+HTTP 400
+{"error": "km debe ser un número finito."}
+
+GET http://127.0.0.1:8000/entregas/cotizar/?km=5&kg=-2
+HTTP 400
+{"error": "kg no puede ser negativo."}

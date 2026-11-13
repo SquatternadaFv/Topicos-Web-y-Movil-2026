@@ -1,0 +1,5 @@
+SHA-256 antes = después.
+{
+  "cliente_movil.py": "cab0315ceaebabd771334953c0fab74e6d08d9662e73f3bdf8911a33174189e6",
+  "entregas/templates/entregas/cotizador.html": "5999aedf583f1508d30f425f28452b520e814e6179ecf733a118ecfebe23e627"
+}

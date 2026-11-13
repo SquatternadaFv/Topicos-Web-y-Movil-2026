@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cotizador | Plataforma de entregas</title>
+  <style>
+    * {box-sizing:border-box} body {margin:0;background:#f2f5f4;color:#18332b;font-family:system-ui,sans-serif}
+    header {background:#183c31;color:white;padding:26px max(24px,calc((100vw - 960px)/2))}
+    header small {letter-spacing:.14em;text-transform:uppercase;color:#b9d4c7}
+    header h1 {margin:10px 0;font-size:30px} main {max-width:960px;margin:44px auto;padding:0 24px}
+    .intro {color:#51665d;line-height:1.6} .card {padding:28px;background:white;border:1px solid #d4dfd8;border-radius:16px;margin:24px 0}
+    .fields {display:flex;gap:20px;flex-wrap:wrap} label {display:grid;gap:8px;flex:1;min-width:200px;font-weight:600}
+    input {border:1px solid #b8ccc0;border-radius:8px;padding:13px;font:inherit;width:100%}
+    button {background:#196b4f;border:0;color:white;font:inherit;padding:13px 24px;border-radius:8px;margin-top:24px;cursor:pointer}
+    button:disabled {opacity:.6} #resultado {padding:22px;background:#e6f2eb;border-radius:10px;margin-top:24px}
+    #resultado[hidden] {display:none} #medio {font-size:25px;margin:8px 0} #motivo {margin-bottom:0}
+    .error {color:#a22424} code {font-size:14px;overflow-wrap:anywhere} footer {font-size:13px;color:#61756a;line-height:1.7}
+  </style>
+</head>
+<body>
+<header><small>Plataforma de entregas · Reto 3</small><h1>¿Cómo enviamos tu paquete?</h1></header>
+<main>
+  <p class="intro">Ingresa la distancia y el peso. El servidor elegirá el medio de entrega y explicará el motivo.</p>
+  <section class="card">
+    <form id="cotizacion">
+      <div class="fields">
+        <label>Distancia (km)<input id="km" name="km" type="number" min="0" step="any" value="5" required></label>
+        <label>Peso del paquete (kg)<input id="kg" name="kg" type="number" min="0" step="any" value="2" required></label>
+      </div>
+      <button id="boton" type="submit">Consultar medio de entrega</button>
+    </form>
+    <p id="error" class="error" role="alert"></p>
+    <div id="resultado" aria-live="polite" hidden><small>MEDIO SUGERIDO</small><h2 id="medio"></h2><p id="motivo"></p></div>
+  </section>
+  <footer>Contrato compartido por el cliente web y el cliente Python:<br><code id="direccion">/entregas/cotizar/?km=5&amp;kg=2</code></footer>
+</main>
+<script>
+const formulario = document.querySelector('#cotizacion');
+formulario.addEventListener('submit', async (evento) => {
+  evento.preventDefault();
+  const boton = document.querySelector('#boton');
+  const resultado = document.querySelector('#resultado');
+  const error = document.querySelector('#error');
+  boton.disabled = true; error.textContent = ''; resultado.hidden = true;
+  const parametros = new URLSearchParams(new FormData(formulario));
+  const url = '{% url "cotizar" %}?' + parametros.toString();
+  document.querySelector('#direccion').textContent = url;
+  try {
+    const respuesta = await fetch(url, {headers: {'Accept': 'application/json'}});
+    const datos = await respuesta.json();
+    if (!respuesta.ok) throw new Error(datos.error || 'No fue posible cotizar.');
+    document.querySelector('#medio').textContent = datos.medio;
+    document.querySelector('#motivo').textContent = datos.motivo;
+    resultado.hidden = false;
+  } catch (fallo) {error.textContent = fallo.message;}
+  finally {boton.disabled = false;}
+});
+</script>
+</body></html>

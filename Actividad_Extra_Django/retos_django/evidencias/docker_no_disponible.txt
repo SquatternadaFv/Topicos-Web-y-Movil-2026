@@ -1,0 +1,3 @@
+$ docker --version
+/bin/bash: docker: command not found
+Estado: no se ejecutaron Docker Compose, nginx ni PostgreSQL.

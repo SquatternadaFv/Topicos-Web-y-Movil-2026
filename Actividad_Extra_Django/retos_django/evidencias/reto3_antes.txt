@@ -1,0 +1,7 @@
+LIMITE_BICICLETA_KM = 3.0
+WEB fetch -> HTTP 200 {"km": 5.0, "kg": 2.0, "medio": "moto", "motivo": "distancia media y paquete ligero"}
+Navegaciones al consultar: 0
+
+GET http://127.0.0.1:8000/entregas/cotizar/?km=5&kg=2
+Medio sugerido: moto
+Motivo: distancia media y paquete ligero

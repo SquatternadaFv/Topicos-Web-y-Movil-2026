@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Laboratorio de entregas</title>
+<style>body{font:16px system-ui;background:#f3f5f8;color:#162338;margin:0}main{max-width:1000px;margin:32px auto;padding:24px;background:white;border-radius:16px}h1{margin-top:0}form{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}label{display:grid;gap:6px}input,select,button{font:inherit;padding:10px;border:1px solid #9aa8ba;border-radius:6px}button{background:#184f9e;color:white;cursor:pointer}pre{white-space:pre-wrap;background:#edf2fa;padding:16px;border-radius:8px}.ancho{grid-column:1/-1}.nota{color:#526174}#estado{font-weight:600}</style></head>
+<body data-endpoint="/entregas/recomendar/"><main>
+<h1>Laboratorio de entregas</h1><p class="nota">Formulario → Django → Adapter → modelo y reglas. El cliente solo recibe JSON.</p>
+<form id="paquete">{% csrf_token %}
+<label>Modelo<select name="modelo"><option value="arbol">Árbol</option><option value="bosque">Random Forest</option><option value="red">Red neuronal</option></select></label>
+<label>Distancia km<input name="distancia_km" type="number" value="12.64" min="0" step="any" required></label>
+<label>Peso kg<input name="peso_kg" type="number" value="0.31" min="0.01" step="any" required></label>
+<label>Largo cm<input name="largo_cm" type="number" value="11.7" min="0.01" step="any" required></label>
+<label>Ancho cm<input name="ancho_cm" type="number" value="7.6" min="0.01" step="any" required></label>
+<label>Alto cm<input name="alto_cm" type="number" value="10.6" min="0.01" step="any" required></label>
+<label>Volumen L<input name="volumen_l" type="number" value="0.94" min="0.01" step="any" required></label>
+<label>Hora 0–23<input name="hora_salida" type="number" value="3" min="0" max="23" required></label>
+<label>Valor MXN<input name="valor_declarado_mxn" type="number" value="4603" min="0" step="any" required></label>
+<label>Frágil<select name="fragil"><option value="0">No</option><option value="1">Sí</option></select></label>
+<label>Refrigerado<select name="refrigerado"><option value="0">No</option><option value="1">Sí</option></select></label>
+<label>Prioridad<select name="prioridad"><option>mismo_dia</option><option>normal</option><option>express</option></select></label>
+<label>Zona<select name="zona_destino"><option>periferia</option><option>centro</option><option>residencial</option><option>rural</option></select></label>
+<label>Clima<select name="clima"><option>despejado</option><option>lluvia</option><option>viento_fuerte</option></select></label>
+<label>Tráfico<select name="trafico"><option>medio</option><option>bajo</option><option>alto</option></select></label>
+<button class="ancho" type="submit">Obtener recomendación</button></form>
+<p id="estado" role="status">Listo para enviar</p><pre id="resultado">La respuesta real aparecerá aquí.</pre>
+<script>
+const form=document.querySelector('form'), salida=document.querySelector('#resultado'), estado=document.querySelector('#estado');
+form.addEventListener('submit',async ev=>{ev.preventDefault();const button=form.querySelector('button');button.disabled=true;estado.textContent='Consultando…';
+try{const datos=Object.fromEntries(new FormData(form).entries());const csrf=datos.csrfmiddlewaretoken;delete datos.csrfmiddlewaretoken;
+for(const c of ['distancia_km','peso_kg','largo_cm','ancho_cm','alto_cm','volumen_l','hora_salida','valor_declarado_mxn','fragil','refrigerado'])datos[c]=Number(datos[c]);
+const r=await fetch(document.body.dataset.endpoint,{method:'POST',headers:{'Content-Type':'application/json',...(csrf?{'X-CSRFToken':csrf}:{})},body:JSON.stringify(datos)});
+const d=await r.json();estado.textContent=d.plan_b?'HTTP '+r.status+' · Plan B; revisar motivo':r.ok?'HTTP '+r.status+' · Respuesta recibida':'HTTP '+r.status+' · Error';salida.textContent=JSON.stringify(d,null,2);
+}catch(e){estado.textContent='No se pudo contactar al servidor';salida.textContent=String(e);}finally{button.disabled=false;}});
+</script></main></body></html>

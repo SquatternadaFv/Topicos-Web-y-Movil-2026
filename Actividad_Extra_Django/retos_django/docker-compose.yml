@@ -1,0 +1,52 @@
+x-django: &django
+  build:
+    context: ../..
+    dockerfile: Actividad_Extra_Django/retos_django/Dockerfile
+  image: plataforma-entregas-extra
+  environment:
+    DJANGO_DEBUG: "0"
+    DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:-solo-demo-cambiar-en-produccion}
+    DJANGO_ALLOWED_HOSTS: localhost,127.0.0.1
+    POSTGRES_HOST: db
+    POSTGRES_DB: entregas
+    POSTGRES_USER: entregas
+    POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-entregas-demo}
+    DEMO_ULTIMO_GLOBAL: ${DEMO_ULTIMO_GLOBAL:-0}
+    DEMO_BORRADOR_GLOBAL: ${DEMO_BORRADOR_GLOBAL:-0}
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: entregas
+      POSTGRES_USER: entregas
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-entregas-demo}
+    volumes:
+      - datos:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U entregas -d entregas"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  migrar:
+    <<: *django
+    command: python manage.py migrate --noinput
+    depends_on:
+      db:
+        condition: service_healthy
+  web:
+    <<: *django
+    deploy:
+      replicas: 3
+    depends_on:
+      migrar:
+        condition: service_completed_successfully
+  balanceador:
+    image: nginx:1.27-alpine
+    ports:
+      - "8000:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - web
+volumes:
+  datos:

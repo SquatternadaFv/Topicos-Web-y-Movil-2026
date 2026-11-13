@@ -1,0 +1,29 @@
+Prueba local: procesos Python independientes y SQLite compartido. NO Docker, nginx ni PostgreSQL.
+
+3 procesos; destino en global
+GUARDAR 200 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 19580, "destino": "Primer destino", "almacenamiento": "global"}
+CONFIRMAR EN OTRA COPIA 400 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 21680, "error": "No hay destino en el borrador"}
+
+3 procesos; destino en sesión DB
+GUARDAR 200 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 18420, "destino": "Primer destino", "almacenamiento": "sesion-db"}
+CONFIRMAR EN OTRA COPIA 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 21960, "folio": "1070466f-9f49-4ef2-adec-4bbbb9ce1b07", "destino": "Primer destino"}
+CONFIRMAR AISLADO 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 21960, "folio": "6e65a205-12cb-4c6c-bf2f-f1fb81ba434f", "destino": "Cliente 0 vuelta 0"}
+CONFIRMAR AISLADO 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 21960, "folio": "a1cf225e-8c90-4b1c-acf0-80156f3f0bc0", "destino": "Cliente 1 vuelta 0"}
+CONFIRMAR AISLADO 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 20088, "folio": "048977d5-5bed-46de-a03b-9debe0b2d31e", "destino": "Cliente 0 vuelta 1"}
+CONFIRMAR AISLADO 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 20088, "folio": "d70c0ca9-1cec-4e0f-a9e7-ed15c43f8594", "destino": "Cliente 1 vuelta 1"}
+CONFIRMAR AISLADO 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 18420, "folio": "7e6881f6-9a84-4228-9695-3042ce05715c", "destino": "Cliente 0 vuelta 2"}
+CONFIRMAR AISLADO 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 18420, "folio": "a930ccc3-641c-4e3b-9f8b-b1e19c6d07d7", "destino": "Cliente 1 vuelta 2"}
+
+5 procesos; destino en sesión DB
+GUARDAR 200 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 10224, "destino": "Primer destino", "almacenamiento": "sesion-db"}
+CONFIRMAR EN OTRA COPIA 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 20500, "folio": "29c53ce7-3526-46b8-86e7-69bd5fc4a3c9", "destino": "Primer destino"}
+CONFIRMAR AISLADO 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 20500, "folio": "e84d3693-05c0-4e32-878b-691b8d33582b", "destino": "Cliente 0 vuelta 0"}
+CONFIRMAR AISLADO 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 20500, "folio": "08903dd5-94d2-4da5-9045-92b320c18f47", "destino": "Cliente 1 vuelta 0"}
+CONFIRMAR AISLADO 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 12788, "folio": "8e8c7718-87c9-4cec-bc5a-afe90297c178", "destino": "Cliente 0 vuelta 1"}
+CONFIRMAR AISLADO 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 12788, "folio": "d187f821-f22c-425d-9aa5-97a42cb44765", "destino": "Cliente 1 vuelta 1"}
+CONFIRMAR AISLADO 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 8752, "folio": "bb98bc96-69bf-422e-af30-345b4a651ab4", "destino": "Cliente 0 vuelta 2"}
+CONFIRMAR AISLADO 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 8752, "folio": "06e98ef0-7e6c-466e-87df-4ac036e44251", "destino": "Cliente 1 vuelta 2"}
+CONFIRMAR AISLADO 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 17536, "folio": "a989abca-3a74-421b-b94f-ed290b50762b", "destino": "Cliente 0 vuelta 3"}
+CONFIRMAR AISLADO 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 17536, "folio": "4b3a11df-fd0c-4104-866a-9966d80466dc", "destino": "Cliente 1 vuelta 3"}
+CONFIRMAR AISLADO 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 10224, "folio": "ec71a82d-5b55-4693-9958-24191d251e6f", "destino": "Cliente 0 vuelta 4"}
+CONFIRMAR AISLADO 201 {"atendido_por": "DESKTOP-BV94V0N", "proceso": 10224, "folio": "c2a53523-0d0f-4cac-b294-eb828a7089e8", "destino": "Cliente 1 vuelta 4"}

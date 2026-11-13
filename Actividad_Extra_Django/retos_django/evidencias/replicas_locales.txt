@@ -1,0 +1,47 @@
+PRUEBA LOCAL COMPLEMENTARIA: procesos independientes, SQLite compartido, sin Docker/nginx/PostgreSQL.
+
+ETAPA: 3 procesos; almacenamiento=global
+puerto=8101 GET /entregas/visitas/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 6, "visitas": 1}
+puerto=8102 GET /entregas/visitas/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 7, "visitas": 2}
+puerto=8103 GET /entregas/visitas/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 8, "visitas": 3}
+puerto=8101 GET /entregas/visitas/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 6, "visitas": 4}
+puerto=8102 GET /entregas/visitas/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 7, "visitas": 5}
+puerto=8103 GET /entregas/visitas/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 8, "visitas": 6}
+puerto=8101 GET /entregas/visitas-mal/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 6, "visitas": 1}
+puerto=8102 GET /entregas/visitas-mal/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 7, "visitas": 1}
+puerto=8103 GET /entregas/visitas-mal/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 8, "visitas": 1}
+puerto=8101 GET /entregas/visitas-mal/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 6, "visitas": 2}
+puerto=8102 GET /entregas/visitas-mal/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 7, "visitas": 2}
+puerto=8103 GET /entregas/visitas-mal/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 8, "visitas": 2}
+puerto=8101 GET /entregas/ultimo/?folio=ABC123 -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 6, "folio": "ABC123", "almacenamiento": "global"}
+puerto=8101 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 6, "folio": "ABC123", "almacenamiento": "global"}
+puerto=8102 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 7, "folio": null, "almacenamiento": "global"}
+puerto=8103 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 8, "folio": null, "almacenamiento": "global"}
+puerto=8101 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 6, "folio": "ABC123", "almacenamiento": "global"}
+puerto=8102 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 7, "folio": null, "almacenamiento": "global"}
+puerto=8103 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 8, "folio": null, "almacenamiento": "global"}
+FALLO OBSERVADO: solo el proceso que escribió recuerda ABC123.
+
+ETAPA: 3 procesos; almacenamiento=sesion-db
+puerto=8101 GET /entregas/ultimo/?folio=ABC123 -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 9, "folio": "ABC123", "almacenamiento": "sesion-db"}
+puerto=8101 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 9, "folio": "ABC123", "almacenamiento": "sesion-db"}
+puerto=8102 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 10, "folio": "ABC123", "almacenamiento": "sesion-db"}
+puerto=8103 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 11, "folio": "ABC123", "almacenamiento": "sesion-db"}
+puerto=8101 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 9, "folio": "ABC123", "almacenamiento": "sesion-db"}
+puerto=8102 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 10, "folio": "ABC123", "almacenamiento": "sesion-db"}
+puerto=8103 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 11, "folio": "ABC123", "almacenamiento": "sesion-db"}
+OK: 3 procesos devolvieron ABC123 con la misma cookie.
+
+ETAPA: 5 procesos; almacenamiento=sesion-db
+puerto=8101 GET /entregas/ultimo/?folio=ABC123 -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 12, "folio": "ABC123", "almacenamiento": "sesion-db"}
+puerto=8101 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 12, "folio": "ABC123", "almacenamiento": "sesion-db"}
+puerto=8102 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 13, "folio": "ABC123", "almacenamiento": "sesion-db"}
+puerto=8103 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 14, "folio": "ABC123", "almacenamiento": "sesion-db"}
+puerto=8104 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 15, "folio": "ABC123", "almacenamiento": "sesion-db"}
+puerto=8105 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 16, "folio": "ABC123", "almacenamiento": "sesion-db"}
+puerto=8101 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 12, "folio": "ABC123", "almacenamiento": "sesion-db"}
+puerto=8102 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 13, "folio": "ABC123", "almacenamiento": "sesion-db"}
+puerto=8103 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 14, "folio": "ABC123", "almacenamiento": "sesion-db"}
+puerto=8104 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 15, "folio": "ABC123", "almacenamiento": "sesion-db"}
+puerto=8105 GET /entregas/ultimo/ver/ -> HTTP 200 {"atendido_por": "e5d45539081f", "proceso": 16, "folio": "ABC123", "almacenamiento": "sesion-db"}
+OK: 5 procesos devolvieron ABC123 con la misma cookie.

@@ -1,0 +1,32 @@
+[
+  {
+    "archivo": "envios1.csv",
+    "sha256": "4d20c14c4a3d7fc9a51ec45d551912909c20430054195734941913e2a562a79a",
+    "fuente": "https://raw.githubusercontent.com/ealcaraz85/topicoswebmobil/main/proyectos/dataset-medios/envios1.csv"
+  },
+  {
+    "archivo": "envios2.csv",
+    "sha256": "e080105935441c449ef575aa164154e5b6e7a02a7699870c3a40a3f80d420dcf",
+    "fuente": "https://raw.githubusercontent.com/ealcaraz85/topicoswebmobil/main/proyectos/dataset-medios/envios2.csv"
+  },
+  {
+    "archivo": "envios3.csv",
+    "sha256": "96c240dde247ce3f96323af71416735545735cb95b0c6e15a1b5c9b13035d73e",
+    "fuente": "https://raw.githubusercontent.com/ealcaraz85/topicoswebmobil/main/proyectos/dataset-medios/envios3.csv"
+  },
+  {
+    "archivo": "envios4.csv",
+    "sha256": "f68d2349626d88ccc500ea9eb3261a525143b08e79f4437eee295ea5e6cc673e",
+    "fuente": "https://raw.githubusercontent.com/ealcaraz85/topicoswebmobil/main/proyectos/dataset-medios/envios4.csv"
+  },
+  {
+    "archivo": "envios5.csv",
+    "sha256": "3b8cd1416c62e807fcf6092fdfeb58162fbade8c8bf735e5c24a198dd9c875e2",
+    "fuente": "https://raw.githubusercontent.com/ealcaraz85/topicoswebmobil/main/proyectos/dataset-medios/envios5.csv"
+  },
+  {
+    "archivo": "envios6.csv",
+    "sha256": "31a8a1f242b3822219fcc28c5864e5ca50f1fc0a685adef9c42cc45736a0a16d",
+    "fuente": "https://raw.githubusercontent.com/ealcaraz85/topicoswebmobil/main/proyectos/dataset-medios/envios6.csv"
+  }
+]

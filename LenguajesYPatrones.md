@@ -1,5 +1,7 @@
 Eduardo Osvaldo Rodríguez Gutiérrez - Tópicos Web y Movil
 
+Complemento de veinte entradas con paradigma y problemas asociados: [lenguajes_paradigmas_complemento.md](actividades/lenguajes_paradigmas_complemento.md).
+
 Lenguajes de programación y sus patrones de diseño
 
 Frontend Web (Interfaces de Usuario)

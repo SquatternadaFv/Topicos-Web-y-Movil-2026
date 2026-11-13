@@ -186,3 +186,20 @@ Predicciones previas: [PREDICCIONES.md](PREDICCIONES.md). Código propio: `../..
 Las cuatro columnas de origen más importantes fueron distancia_km, volumen_l, clima, refrigerado. El inicio del árbol se conserva en `resultados/04_inicio_arbol.txt` para contrastar nodos y el orden previo. La mayor caída al quitar una columna fue distancia_km: -12.80 puntos. Columnas sin cambio en esta partición: zona_destino, valor_declarado_mxn, trafico. La predicción previa puso peso/volumen antes que clima; los datos permiten identificar ese desacuerdo sin reescribir la hipótesis.
 
 **Comparación y decisión.** Las cuatro primeras filas muestran las entradas usadas por el árbol; las variables one-hot deben agruparse por columna de origen antes de compararlas con el orden previo. Quitar una columna y reentrenar no equivale a ponerla en cero en inferencia. Una importancia cero de zona no evita que reglas.py prohíba un dron al centro: son responsabilidades distintas. Se mantienen datos necesarios para restricciones, cálculo de volumen, auditoría o seguimiento aunque no mejoren este árbol. Retirar campos de la app exige analizar ese uso y versionar el contrato.
+
+
+## Actividad 5 — El dron es minoría: ¿hay que balancear?
+
+**Parte A.** Un sistema que nunca acierta drones y acierta todo lo demás tendría 90.52%; siempre responder la clase mayoritaria daría 45.78%. Ninguno basta para juzgar drones: se necesitan precisión, recall, matriz y costo. Su rareza proviene de capacidades, clima, horario y zonas. Separar primero y balancear solo entrenamiento; la prueba debe conservar la distribución objetivo.
+
+**Parte B: misma prueba intacta para todas las estrategias.**
+
+| estrategia | entrenamiento | exactitud | precision_dron | recall_dron | predice_dron | imposibles |
+| --- | --- | --- | --- | --- | --- | --- |
+| sin_balancear | 8000 | 0.9210 | 0.8390 | 0.9053 | 205 | 31 |
+| submuestreo | 3032 | 0.8975 | 0.8894 | 0.9316 | 199 | 29 |
+| sobremuestreo | 14652 | 0.9065 | 0.7661 | 1.0000 | 248 | 35 |
+| class_weight_balanced | 8000 | 0.9025 | 0.7661 | 1.0000 | 248 | 35 |
+| drones_nuevos | 9942 | 0.9005 | 0.7224 | 1.0000 | 263 | 56 |
+
+**Trampa explícita, no válida como resultado comparable:** 728 IDs aparecen a ambos lados después de duplicar antes de separar. Métricas de esa prueba contaminada: `{"exactitud": 0.9428125, "precision_dron": 0.9583911234396671, "recall_dron": 0.9949604031677466, "predice_dron": 1442, "imposibles": 36}`. El resultado no mide generalización y cambia la prevalencia. **Parte C.** Mayor recall puede comprar falsos positivos; el submuestreo pierde ejemplos de regiones raras. Duplicar y ponderar pueden parecerse porque alteran el peso efectivo, aunque no garantizan el mismo árbol. Después de cambiar prevalencias, predict_proba no es confianza calibrada para la población original. **Parte D.** No desplegaría balanceo solo por recall: evaluaría costo y precisión del dron y conservaría las reglas. Comprar más drones requiere datos nuevos y revisar restricciones; duplicar filas viejas no representa mayor capacidad.

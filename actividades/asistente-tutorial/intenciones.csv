@@ -1,0 +1,61 @@
+texto,intencion
+hola,saludo
+buenos días,saludo
+buenas tardes,saludo
+qué tal,saludo
+buenas noches,saludo
+hola asistente,saludo
+saludos,saludo
+buen día amigo,saludo
+hey hola,saludo
+hola quiero ayuda,saludo
+dónde está mi pedido,seguimiento
+quiero rastrear el folio,seguimiento
+consultar estado de entrega,seguimiento
+cómo va mi envío,seguimiento
+buscar mi pedido,seguimiento
+seguimiento de paquete,seguimiento
+cuál es el estado del folio,seguimiento
+mi pedido ya llegó,seguimiento
+rastrear entrega por folio,seguimiento
+ver situación de mi envío,seguimiento
+qué servicios ofrecen,catalogo
+cuáles medios tienen,catalogo
+ver opciones de transporte,catalogo
+qué vehículos hay,catalogo
+lista de servicios,catalogo
+qué tipos de entrega manejan,catalogo
+tienen motocicleta,catalogo
+hay servicio de bicicleta,catalogo
+muéstrame sus medios,catalogo
+cuentan con camioneta,catalogo
+recomienda un medio,recomendacion
+qué vehículo me conviene,recomendacion
+calcular recomendación del paquete,recomendacion
+quiero elegir transporte,recomendacion
+sugiere cómo enviar,recomendacion
+necesito un medio para mi envío,recomendacion
+cuál transporte recomiendas,recomendacion
+recomendar entrega con peso y distancia,recomendacion
+elegir vehículo adecuado,recomendacion
+consulta al recomendador,recomendacion
+por qué eligió moto,explicacion
+explica la recomendación,explicacion
+por qué no se usó dron,explicacion
+qué significa corregido por reglas,explicacion
+por qué fue camioneta,explicacion
+explicar el medio asignado,explicacion
+cuál fue el motivo del pedido,explicacion
+razón de la recomendación,explicacion
+por qué cambiaron mi medio,explicacion
+qué reglas descartaron el dron,explicacion
+quién ganó el partido,fuera
+cuál es la receta del pastel,fuera
+resuelve mi tarea de historia,fuera
+dime el clima en Marte,fuera
+comprar acciones de una empresa,fuera
+recomienda una película,fuera
+qué significa esta canción,fuera
+cuéntame política internacional,fuera
+quiero un diagnóstico médico,fuera
+qué celular debería comprar,fuera

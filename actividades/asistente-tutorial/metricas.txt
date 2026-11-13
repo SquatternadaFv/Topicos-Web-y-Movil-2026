@@ -1,0 +1,13 @@
+Prueba separada 20 %, semilla 42. Solo 12 ejemplos: incertidumbre alta.
+               precision    recall  f1-score   support
+
+     catalogo       1.00      1.00      1.00         2
+  explicacion       1.00      0.50      0.67         2
+        fuera       0.67      1.00      0.80         2
+recomendacion       0.00      0.00      0.00         2
+       saludo       1.00      1.00      1.00         2
+  seguimiento       0.50      1.00      0.67         2
+
+     accuracy                           0.75        12
+    macro avg       0.69      0.75      0.69        12
+ weighted avg       0.69      0.75      0.69        12

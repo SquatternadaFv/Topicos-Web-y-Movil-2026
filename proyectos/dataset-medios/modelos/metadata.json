@@ -1,0 +1,29 @@
+{
+  "python": "3.12.16 (main, Oct 26 2026, 14:10:56) [MSC v.1944 64 bit (AMD64)]",
+  "sklearn": "1.9.1",
+  "semilla": 42,
+  "filas": 10000,
+  "metricas": {
+    "arbol": {
+      "exactitud": 0.921,
+      "precision_dron": 0.8390243902439024,
+      "recall_dron": 0.9052631578947369,
+      "predice_dron": 205,
+      "imposibles": 31
+    },
+    "bosque": {
+      "exactitud": 0.9315,
+      "precision_dron": 0.9141414141414141,
+      "recall_dron": 0.9526315789473684,
+      "predice_dron": 198,
+      "imposibles": 6
+    },
+    "red": {
+      "exactitud": 0.8875,
+      "precision_dron": 0.817258883248731,
+      "recall_dron": 0.8473684210526315,
+      "predice_dron": 197,
+      "imposibles": 42
+    }
+  }
+}

@@ -71,3 +71,49 @@ Predicciones previas: [PREDICCIONES.md](PREDICCIONES.md). Código propio: `../..
 **Comparación.** La noche representa 10.53%: 1053 filas frente a 8947 diurnas. La tabla permite contrastar las horas sin dron con el intervalo legal 6–20. El generador penaliza a la bicicleta de noche y modifica el tráfico por hora; no es una prohibición absoluta de bicicleta. Representar noche con umbrales requiere separar hora < 6 de hora >= 21, al menos dos comparaciones. **Decisión:** conservar es_de_noche si mejora los imposibles y métricas en prueba, no solo exactitud. La predicción previa se contrasta con la fila calculada; si no mejora, no se fuerza la conclusión.
 
 ![Envíos por hora](resultados/02_horas.png)
+
+
+## Actividad 3 — Anatomía de los errores
+
+| real | predicho | cantidad |
+| --- | --- | --- |
+| moto | bicicleta | 46 |
+| camioneta | moto | 32 |
+| moto | dron | 29 |
+| bicicleta | moto | 20 |
+| dron | bicicleta | 18 |
+| camioneta | bicicleta | 9 |
+| camioneta | dron | 4 |
+
+**Motos que pasan a dron y no corrigen las reglas:**
+
+| index | distancia_km | peso_kg | volumen_l | hora_salida | prioridad | clima | trafico | zona_destino | fragil |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2484 | 7.3500 | 1.6700 | 5.7200 | 17 | express | despejado | alto | residencial | 0 |
+| 3722 | 12.1400 | 0.9000 | 3.6800 | 13 | normal | despejado | alto | residencial | 0 |
+| 677 | 7.5500 | 1.0500 | 6.6000 | 18 | normal | despejado | alto | residencial | 0 |
+
+**Diferencias en prioridad, proporciones:**
+
+| prioridad | moto_a_bicicleta | bicicleta_correcta |
+| --- | --- | --- |
+| mismo_dia | 0.4783 | 0.1187 |
+| express | 0.3043 | 0.2987 |
+| normal | 0.2174 | 0.5826 |
+
+**Diferencias en clima, proporciones:**
+
+| clima | moto_a_bicicleta | bicicleta_correcta |
+| --- | --- | --- |
+| despejado | 0.5217 | 0.8479 |
+| lluvia | 0.2391 | 0.0204 |
+| viento_fuerte | 0.2391 | 0.1317 |
+
+**Diferencias en fragil, proporciones:**
+
+| fragil | moto_a_bicicleta | bicicleta_correcta |
+| --- | --- | --- |
+| 0 | 0.6522 | 0.7143 |
+| 1 | 0.3478 | 0.2857 |
+
+**Resultado y comparación.** 158 errores de 2000; las tres confusiones principales aparecen arriba. De 29 motos enviadas a dron, 26 son nocturnas; las otras necesitan inspeccionar clima, zona y capacidad, no solo la hora. Las 46 motos enviadas a bicicleta tienen distancia mediana 3.88 km; 5 están a 6 km o más. Se conservan filas, prioridades, clima y riesgos en los CSV para explicar las diferencias. Cambiar random_state cambia los ejemplos de entrenamiento/prueba y ya no permite evaluar el archivo guardado como si fuera el mismo holdout. **Decisión:** priorizar recomendaciones físicamente inviables mediante reglas; los errores entre medios posibles se evalúan por costo y riesgo, sin confundir etiqueta con verdad absoluta.

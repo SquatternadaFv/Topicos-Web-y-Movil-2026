@@ -1,0 +1,8 @@
+real,predicho,cantidad
+moto,bicicleta,46
+camioneta,moto,32
+moto,dron,29
+bicicleta,moto,20
+dron,bicicleta,18
+camioneta,bicicleta,9
+camioneta,dron,4

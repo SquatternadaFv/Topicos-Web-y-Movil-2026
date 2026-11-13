@@ -1,0 +1,10 @@
+[
+  {
+    "imputacion_numerica": false,
+    "exactitud": 0.912
+  },
+  {
+    "imputacion_numerica": true,
+    "exactitud": 0.912
+  }
+]

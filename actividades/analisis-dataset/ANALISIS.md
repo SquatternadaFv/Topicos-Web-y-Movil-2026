@@ -239,3 +239,26 @@ Las cuatro columnas de origen más importantes fueron distancia_km, volumen_l, c
 **Contraejemplo calculado a la regla de distancia:** paquete de 1 kg/1 L, frágil, no refrigerado, valor 100, a las 3:00, prioridad normal, residencial, lluvia y tráfico medio. A 2 km el óptimo es moto; a 1 km es camioneta. Costos a 2 km: moto=110.845, camioneta=113.200; a 1 km: moto=106.172, camioneta=103.400. La penalización fija de fragilidad/lluvia afecta más a moto; al reducir distancia puede dominar el costo fijo, por lo que «más cerca nunca pasa a camioneta» es falsa incluso si la búsqueda en una muestra no encuentra un caso.
 
 **Justificación de propiedades.** (1) Peso no interviene en puntaje, solo capacidad: al reducirlo puede entrar un medio antes inviable, pero no hay razón para preferir otro ya viable. (2) 10:00 y 16:00 son diurnas; con tráfico fijo el costo no cambia. (3) La fórmula usa volumen_l, no largo aislado; cambiar largo sin volumen es una prueba controlada, no un paquete coherente de producción. (4) Fragilidad penaliza moto 50, bici 30, dron 20 y camioneta 0: activar fragilidad no puede introducir moto desde otro ganador, salvo empate previo; se revisan empates en el óptimo. **Distancia:** se encontraron 1 contraejemplos al reducirla a la mitad. Si no aparecen en esta muestra, no demuestra la propiedad: el costo fijo de camioneta y las penalizaciones ajenas a distancia pueden hacer que gane a distancias muy cortas. **Valor:** 43 filas del dataset completo y 35 del entrenamiento superan 20000; al subir a 30000 cambian 1 decisiones del modelo y 350 óptimos. Una prueba que solo prohíbe direcciones incorrectas no detecta insensibilidad; hace falta una prueba de sensibilidad con casos donde el óptimo sí debe cambiar. **Decisión:** cero medios físicamente imposibles y cero cambios por hora 10→16 con tráfico fijo; bloquear promoción si falla esa invariancia. Para otras incoherencias se admite como máximo 1 % en el conjunto retenido y nunca empeorar la versión vigente sin justificación del negocio. Entre 93 % con cincuenta incoherencias y 92 % con dos, elegiría el segundo si las incoherencias representan riesgos reales. El árbol libre puede memorizar fronteras del ruido: pequeñas perturbaciones cruzan hojas arbitrarias aunque cambie poco accuracy. La tabla permite comprobarlo, sin declararlo por anticipado. Reglas corrigen inviabilidad, no todos los errores de costo.
+
+
+## Actividad 8 — El mundo cambia
+
+| escenario | exactitud | confianza_media | corregidas | lluvia_observada | pred_bicicleta | pred_moto | pred_camioneta | pred_dron |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| referencia | 0.9258 | 0.9254 | 0.0116 | 0.2008 | 0.3172 | 0.4350 | 0.1530 | 0.0948 |
+| lluvias | 0.9226 | 0.9273 | 0.0084 | 0.5454 | 0.1960 | 0.6080 | 0.1536 | 0.0424 |
+| drones_nuevos | 0.8312 | 0.9259 | 0.0094 | 0.1886 | 0.3076 | 0.4510 | 0.1430 | 0.0984 |
+
+| estrategia | nuevos | exactitud |
+| --- | --- | --- |
+| solo_nuevos | 200 | 0.8018 |
+| viejos_mas_nuevos | 200 | 0.8402 |
+| nuevos_ponderados | 200 | 0.8482 |
+| solo_nuevos | 500 | 0.8750 |
+| viejos_mas_nuevos | 500 | 0.8404 |
+| nuevos_ponderados | 500 | 0.8468 |
+| solo_nuevos | 1000 | 0.9010 |
+| viejos_mas_nuevos | 1000 | 0.8410 |
+| nuevos_ponderados | 1000 | 0.8610 |
+
+**Solo reglas nuevas sin entrenar:** exactitud con reglas anteriores 84.02%, con límites actualizados 84.02%. La señal sin etiqueta para lluvia es su frecuencia observada; la nueva capacidad puede ser invisible en las entradas si solo cambia qué decisión es correcta. La confianza no sabe que el contrato operativo cambió. Mezclar muchos datos viejos conserva etiquetas de la capacidad anterior y diluye los pocos nuevos. **Decisión:** registrar entrada, versión de modelo/reglas, ranking, medio sugerido y medio finalmente elegido por el operador. Observer después del commit permite registrar esa discrepancia sin recargar la vista. Actualizar primero el contrato de límites acordado con negocio, generar/obtener etiquetas del mundo nuevo, evaluar contra escenarios retenidos, versionar y desplegar juntos reglas/modelo. La métrica dispara revisión; el responsable del negocio y el equipo deciden el reentrenamiento, no el modelo por sí solo.

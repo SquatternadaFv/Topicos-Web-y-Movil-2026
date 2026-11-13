@@ -1,0 +1,11 @@
+{
+  "base": {
+    "exactitud": 0.921,
+    "precision_dron": 0.8390243902439024,
+    "recall_dron": 0.9052631578947369,
+    "predice_dron": 205,
+    "imposibles": 31
+  },
+  "filas": 10000,
+  "prueba": 2000
+}

@@ -1,0 +1,10 @@
+,estrategia,nuevos,exactitud
+0,solo_nuevos,200,0.8018
+1,viejos_mas_nuevos,200,0.8402
+2,nuevos_ponderados,200,0.8482
+3,solo_nuevos,500,0.875
+4,viejos_mas_nuevos,500,0.8404
+5,nuevos_ponderados,500,0.8468
+6,solo_nuevos,1000,0.901
+7,viejos_mas_nuevos,1000,0.841
+8,nuevos_ponderados,1000,0.861

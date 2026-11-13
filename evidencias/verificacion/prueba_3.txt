@@ -1,0 +1,32 @@
+$ python dia5/dia5/manage.py test entregas --verbosity 2
+Found 10 test(s).
+Operations to perform:
+  Synchronize unmigrated apps: staticfiles
+  Apply all migrations: contenttypes, entregas
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying entregas.0001_initial... OK
+System check identified no issues (0 silenced).
+Creating test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+
+test_alta_con_ia_apagada_usa_fallback (entregas.tests.AltaPedidoTests.test_alta_con_ia_apagada_usa_fallback) ... ok
+test_fallo_del_cobro_revierte_el_pedido_y_no_avisa (entregas.tests.AltaPedidoTests.test_fallo_del_cobro_revierte_el_pedido_y_no_avisa) ... ok
+test_post_prg_y_recarga_sin_nuevo_pedido_ni_cobro (entregas.tests.AltaPedidoTests.test_post_prg_y_recarga_sin_nuevo_pedido_ni_cobro) ... ok
+test_consultas_no_invocan_la_ia_ni_replanean (entregas.tests.ConsultaPedidoTests.test_consultas_no_invocan_la_ia_ni_replanean) ... ok
+test_eta_sin_estimacion_se_serializa_como_null (entregas.tests.ConsultaPedidoTests.test_eta_sin_estimacion_se_serializa_como_null) ... ok
+test_folio_inexistente_devuelve_404 (entregas.tests.ConsultaPedidoTests.test_folio_inexistente_devuelve_404) ... ok
+test_html_y_json_del_mismo_folio_con_una_consulta_cada_uno (entregas.tests.ConsultaPedidoTests.test_html_y_json_del_mismo_folio_con_una_consulta_cada_uno) ... ok
+test_metodos_distintos_de_get_no_modifican_el_pedido (entregas.tests.ConsultaPedidoTests.test_metodos_distintos_de_get_no_modifican_el_pedido) ... ok
+test_reporte_de_20_pedidos_ejecuta_una_consulta (entregas.tests.ConsultaPedidoTests.test_reporte_de_20_pedidos_ejecuta_una_consulta) ... ok
+test_aviso_fallido_despues_del_commit_conserva_alta_y_redireccion (entregas.tests.AvisoTrasCommitTests.test_aviso_fallido_despues_del_commit_conserva_alta_y_redireccion) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.042s
+
+OK
+Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+

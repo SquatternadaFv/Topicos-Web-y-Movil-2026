@@ -1,0 +1,249 @@
+{
+  "estado_django": {
+    "status": 200,
+    "json": {
+      "servicio": "entregas",
+      "version": 1,
+      "medios_disponibles": [
+        "camioneta",
+        "moto",
+        "bicicleta",
+        "dron"
+      ],
+      "atendido_por": "DESKTOP-BV94V0N",
+      "proceso": 20576
+    }
+  },
+  "modelo_django": {
+    "status": 200,
+    "json": {
+      "modelo": "arbol",
+      "medio": "moto",
+      "confianza": 0.13119143239625167,
+      "motivo": "arbol; confianza 13.1%; se descartó dron por reglas",
+      "preferido_por_modelo": "dron",
+      "corregido_por_reglas": true,
+      "ranking": [
+        {
+          "medio": "dron",
+          "probabilidad": 0.8406961178045516,
+          "posible": false
+        },
+        {
+          "medio": "moto",
+          "probabilidad": 0.13119143239625167,
+          "posible": true
+        },
+        {
+          "medio": "camioneta",
+          "probabilidad": 0.028112449799196786,
+          "posible": true
+        },
+        {
+          "medio": "bicicleta",
+          "probabilidad": 0.0,
+          "posible": false
+        }
+      ],
+      "plan": {
+        "costo_estimado": 143.71
+      }
+    }
+  },
+  "chat_hola": {
+    "status": 200,
+    "json": {
+      "intencion": "saludo",
+      "respuesta": "Hola. Puedo orientar sobre entregas y consultar un pedido por su folio.",
+      "confianza": 0.8092909429675416
+    }
+  },
+  "chat_quiero rastrear el folio": {
+    "status": 200,
+    "json": {
+      "intencion": "seguimiento",
+      "respuesta": "Escribe el folio UUID completo del pedido para consultar su información.",
+      "confianza": 0.7140960206935777
+    }
+  },
+  "chat_recomienda un medio": {
+    "status": 200,
+    "json": {
+      "intencion": "recomendacion",
+      "respuesta": "Usa el formulario de recomendación con los datos del paquete. El recomendador, no este chat, decide el medio.",
+      "confianza": 0.6237221190038924
+    }
+  },
+  "chat_cuál es la receta del pastel": {
+    "status": 200,
+    "json": {
+      "intencion": "fuera",
+      "respuesta": "Esa pregunta queda fuera del dominio de entregas del tutorial.",
+      "confianza": 0.0
+    }
+  },
+  "micro_arbol": {
+    "status": 201,
+    "json": {
+      "confianza": 0.13119143239625167,
+      "corregido_por_reglas": true,
+      "folio": "46A3FACA",
+      "medio": "moto",
+      "modelo": "arbol",
+      "motivo": "arbol; confianza 13.1%; se descartó dron por reglas",
+      "plan": {
+        "costo_estimado": 143.71
+      },
+      "plan_b": false,
+      "preferido_por_modelo": "dron",
+      "ranking": [
+        {
+          "medio": "dron",
+          "posible": false,
+          "probabilidad": 0.8406961178045516
+        },
+        {
+          "medio": "moto",
+          "posible": true,
+          "probabilidad": 0.13119143239625167
+        },
+        {
+          "medio": "camioneta",
+          "posible": true,
+          "probabilidad": 0.028112449799196786
+        },
+        {
+          "medio": "bicicleta",
+          "posible": false,
+          "probabilidad": 0.0
+        }
+      ],
+      "recorrido": [
+        "gateway",
+        "pedidos",
+        "recomendar"
+      ],
+      "servicio": "pedidos"
+    }
+  },
+  "micro_bosque": {
+    "status": 201,
+    "json": {
+      "confianza": 0.81,
+      "corregido_por_reglas": false,
+      "folio": "EA9D8FCD",
+      "medio": "moto",
+      "modelo": "bosque",
+      "motivo": "bosque; confianza 81.0%",
+      "plan": {
+        "costo_estimado": 143.71
+      },
+      "plan_b": false,
+      "preferido_por_modelo": "moto",
+      "ranking": [
+        {
+          "medio": "moto",
+          "posible": true,
+          "probabilidad": 0.81
+        },
+        {
+          "medio": "dron",
+          "posible": false,
+          "probabilidad": 0.17333333333333334
+        },
+        {
+          "medio": "camioneta",
+          "posible": true,
+          "probabilidad": 0.013333333333333334
+        },
+        {
+          "medio": "bicicleta",
+          "posible": false,
+          "probabilidad": 0.0033333333333333335
+        }
+      ],
+      "recorrido": [
+        "gateway",
+        "pedidos",
+        "recomendar"
+      ],
+      "servicio": "pedidos"
+    }
+  },
+  "micro_red": {
+    "status": 201,
+    "json": {
+      "confianza": 0.7439935456613543,
+      "corregido_por_reglas": false,
+      "folio": "99F0D697",
+      "medio": "moto",
+      "modelo": "red",
+      "motivo": "red; confianza 74.4%",
+      "plan": {
+        "costo_estimado": 143.71
+      },
+      "plan_b": false,
+      "preferido_por_modelo": "moto",
+      "ranking": [
+        {
+          "medio": "moto",
+          "posible": true,
+          "probabilidad": 0.7439935456613543
+        },
+        {
+          "medio": "dron",
+          "posible": false,
+          "probabilidad": 0.24034101518492146
+        },
+        {
+          "medio": "camioneta",
+          "posible": true,
+          "probabilidad": 0.015213052381576641
+        },
+        {
+          "medio": "bicicleta",
+          "posible": false,
+          "probabilidad": 0.0004523867721475756
+        }
+      ],
+      "recorrido": [
+        "gateway",
+        "pedidos",
+        "recomendar"
+      ],
+      "servicio": "pedidos"
+    }
+  },
+  "micro_invalido": {
+    "status": 400,
+    "json": {
+      "error": "Faltan campos: peso_kg",
+      "servicio": "recomendar"
+    }
+  },
+  "micro_recomendar_apagado": {
+    "status": 503,
+    "json": {
+      "confianza": null,
+      "corregido_por_reglas": false,
+      "folio": "4455ECCD",
+      "medio": "camioneta",
+      "modelo": null,
+      "motivo": "Recomendar no disponible; plan B de demostración, requiere revisión operativa",
+      "plan_b": true,
+      "ranking": [],
+      "recorrido": [
+        "gateway",
+        "pedidos",
+        "recomendar no disponible"
+      ],
+      "servicio": "pedidos"
+    }
+  },
+  "entorno": {
+    "sys_prefix": "C:\\TopicosMovilWeb\\.venv-actividades",
+    "python": "3.12.16 (main, Oct 26 2026, 14:10:56) [MSC v.1944 64 bit (AMD64)]",
+    "docker_disponible": false,
+    "tipo_demostracion": "procesos locales HTTP; NO Docker ni nginx"
+  }
+}

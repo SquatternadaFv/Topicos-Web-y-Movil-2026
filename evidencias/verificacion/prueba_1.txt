@@ -1,0 +1,13 @@
+$ python -m unittest discover -s tests -v
+test_estrategia_adicional_no_exige_cambiar_adaptador (test_laboratorio.ContratosTests.test_estrategia_adicional_no_exige_cambiar_adaptador) ... ok
+test_proveedor_reglas_por_configuracion (test_laboratorio.ContratosTests.test_proveedor_reglas_por_configuracion) ... ok
+test_rechaza_hora_fraccionaria_y_volumen_inconsistente (test_laboratorio.ContratosTests.test_rechaza_hora_fraccionaria_y_volumen_inconsistente) ... ok
+test_rechaza_numeros_no_finitos_y_ausencia_de_peso (test_laboratorio.ContratosTests.test_rechaza_numeros_no_finitos_y_ausencia_de_peso) ... ok
+test_respaldo_mantiene_contrato_y_explica_fallo (test_laboratorio.ContratosTests.test_respaldo_mantiene_contrato_y_explica_fallo) ... ok
+test_tres_modelos_respetan_reglas_con_noche_lluvia_refrigeracion (test_laboratorio.ContratosTests.test_tres_modelos_respetan_reglas_con_noche_lluvia_refrigeracion) ... ok
+test_xml_traduce_vehicle_y_rechaza_desconocido (test_laboratorio.ContratosTests.test_xml_traduce_vehicle_y_rechaza_desconocido) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.446s
+
+OK

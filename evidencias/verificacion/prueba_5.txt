@@ -1,0 +1,2 @@
+$ python Actividad_Extra_Django/retos_django/manage.py makemigrations --check --dry-run
+No changes detected

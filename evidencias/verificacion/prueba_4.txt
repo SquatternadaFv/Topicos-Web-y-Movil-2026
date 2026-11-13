@@ -1,0 +1,2 @@
+$ python Actividad_Extra_Django/retos_django/manage.py check
+System check identified no issues (0 silenced).

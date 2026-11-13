@@ -1,0 +1,37 @@
+[
+  {
+    "comando": "python -m unittest discover -s tests -v",
+    "codigo": 0,
+    "salida": "prueba_1.txt"
+  },
+  {
+    "comando": "python Actividad_Extra_Django/retos_django/manage.py test entregas --verbosity 2",
+    "codigo": 0,
+    "salida": "prueba_2.txt"
+  },
+  {
+    "comando": "python dia5/dia5/manage.py test entregas --verbosity 2",
+    "codigo": 0,
+    "salida": "prueba_3.txt"
+  },
+  {
+    "comando": "python Actividad_Extra_Django/retos_django/manage.py check",
+    "codigo": 0,
+    "salida": "prueba_4.txt"
+  },
+  {
+    "comando": "python Actividad_Extra_Django/retos_django/manage.py makemigrations --check --dry-run",
+    "codigo": 0,
+    "salida": "prueba_5.txt"
+  },
+  {
+    "compose": "microservicios-entregas\\docker-compose.yml",
+    "yaml_y_rutas_validos": true,
+    "docker_ejecutado": false
+  },
+  {
+    "compose": "Actividad_Extra_Django\\retos_django\\docker-compose.yml",
+    "yaml_y_rutas_validos": true,
+    "docker_ejecutado": false
+  }
+]

@@ -1,0 +1,5 @@
+{
+  "ejecutable": null,
+  "docker_ejecutado": false,
+  "motivo": "Docker no está instalado o no está en PATH. No se ejecutaron contenedores ni compose ps."
+}

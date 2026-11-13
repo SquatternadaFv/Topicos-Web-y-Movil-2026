@@ -117,3 +117,72 @@ Predicciones previas: [PREDICCIONES.md](PREDICCIONES.md). Código propio: `../..
 | 1 | 0.3478 | 0.2857 |
 
 **Resultado y comparación.** 158 errores de 2000; las tres confusiones principales aparecen arriba. De 29 motos enviadas a dron, 26 son nocturnas; las otras necesitan inspeccionar clima, zona y capacidad, no solo la hora. Las 46 motos enviadas a bicicleta tienen distancia mediana 3.88 km; 5 están a 6 km o más. Se conservan filas, prioridades, clima y riesgos en los CSV para explicar las diferencias. Cambiar random_state cambia los ejemplos de entrenamiento/prueba y ya no permite evaluar el archivo guardado como si fuera el mismo holdout. **Decisión:** priorizar recomendaciones físicamente inviables mediante reglas; los errores entre medios posibles se evalúan por costo y riesgo, sin confundir etiqueta con verdad absoluta.
+
+
+## Actividad 4 — ¿Qué columnas usa de verdad el modelo?
+
+| index | feature | importancia |
+| --- | --- | --- |
+| 0 | numericas__distancia_km | 0.3220 |
+| 5 | numericas__volumen_l | 0.1929 |
+| 7 | numericas__refrigerado | 0.1313 |
+| 1 | numericas__peso_kg | 0.1263 |
+| 18 | categoricas__clima_lluvia | 0.0805 |
+| 17 | categoricas__clima_despejado | 0.0633 |
+| 9 | numericas__hora_salida | 0.0587 |
+| 6 | numericas__fragil | 0.0199 |
+| 11 | categoricas__prioridad_mismo_dia | 0.0020 |
+| 12 | categoricas__prioridad_normal | 0.0011 |
+| 8 | numericas__valor_declarado_mxn | 0.0007 |
+| 3 | numericas__ancho_cm | 0.0007 |
+| 2 | numericas__largo_cm | 0.0003 |
+| 4 | numericas__alto_cm | 0.0003 |
+| 20 | categoricas__trafico_alto | 0.0002 |
+| 14 | categoricas__zona_destino_periferia | 0.0000 |
+| 13 | categoricas__zona_destino_centro | 0.0000 |
+| 10 | categoricas__prioridad_express | 0.0000 |
+| 16 | categoricas__zona_destino_rural | 0.0000 |
+| 15 | categoricas__zona_destino_residencial | 0.0000 |
+| 19 | categoricas__clima_viento_fuerte | 0.0000 |
+| 21 | categoricas__trafico_bajo | 0.0000 |
+| 22 | categoricas__trafico_medio | 0.0000 |
+
+**Importancia agrupada de las catorce columnas originales:**
+
+| index | importancia |
+| --- | --- |
+| distancia_km | 0.3220 |
+| volumen_l | 0.1929 |
+| clima | 0.1438 |
+| refrigerado | 0.1313 |
+| peso_kg | 0.1263 |
+| hora_salida | 0.0587 |
+| fragil | 0.0199 |
+| prioridad | 0.0031 |
+| valor_declarado_mxn | 0.0007 |
+| ancho_cm | 0.0007 |
+| largo_cm | 0.0003 |
+| alto_cm | 0.0003 |
+| trafico | 0.0002 |
+| zona_destino | 0.0000 |
+
+| index | sin | exactitud | cambio_pp |
+| --- | --- | --- | --- |
+| 0 | distancia_km | 0.7930 | -12.8000 |
+| 12 | clima | 0.8445 | -7.6500 |
+| 7 | refrigerado | 0.8785 | -4.2500 |
+| 9 | hora_salida | 0.8910 | -3.0000 |
+| 1 | peso_kg | 0.9040 | -1.7000 |
+| 5 | volumen_l | 0.9060 | -1.5000 |
+| 6 | fragil | 0.9155 | -0.5500 |
+| 2 | largo_cm | 0.9205 | -0.0500 |
+| 4 | alto_cm | 0.9205 | -0.0500 |
+| 3 | ancho_cm | 0.9205 | -0.0500 |
+| 11 | zona_destino | 0.9210 | 0.0000 |
+| 8 | valor_declarado_mxn | 0.9210 | 0.0000 |
+| 13 | trafico | 0.9210 | 0.0000 |
+| 10 | prioridad | 0.9215 | 0.0500 |
+
+Las cuatro columnas de origen más importantes fueron distancia_km, volumen_l, clima, refrigerado. El inicio del árbol se conserva en `resultados/04_inicio_arbol.txt` para contrastar nodos y el orden previo. La mayor caída al quitar una columna fue distancia_km: -12.80 puntos. Columnas sin cambio en esta partición: zona_destino, valor_declarado_mxn, trafico. La predicción previa puso peso/volumen antes que clima; los datos permiten identificar ese desacuerdo sin reescribir la hipótesis.
+
+**Comparación y decisión.** Las cuatro primeras filas muestran las entradas usadas por el árbol; las variables one-hot deben agruparse por columna de origen antes de compararlas con el orden previo. Quitar una columna y reentrenar no equivale a ponerla en cero en inferencia. Una importancia cero de zona no evita que reglas.py prohíba un dron al centro: son responsabilidades distintas. Se mantienen datos necesarios para restricciones, cálculo de volumen, auditoría o seguimiento aunque no mejoren este árbol. Retirar campos de la app exige analizar ese uso y versionar el contrato.

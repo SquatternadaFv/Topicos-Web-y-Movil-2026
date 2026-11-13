@@ -1,0 +1,25 @@
+|--- numericas__distancia_km <= 7.01
+|   |--- numericas__volumen_l <= 90.10
+|   |   |--- categoricas__clima_lluvia <= 0.50
+|   |   |   |--- numericas__peso_kg <= 7.85
+|   |   |   |   |--- truncated branch of depth 5
+|   |   |   |--- numericas__peso_kg >  7.85
+|   |   |   |   |--- truncated branch of depth 5
+|   |   |--- categoricas__clima_lluvia >  0.50
+|   |   |   |--- numericas__fragil <= 0.50
+|   |   |   |   |--- truncated branch of depth 5
+|   |   |   |--- numericas__fragil >  0.50
+|   |   |   |   |--- truncated branch of depth 5
+|   |--- numericas__volumen_l >  90.10
+|   |   |--- class: camioneta
+|--- numericas__distancia_km >  7.01
+|   |--- numericas__distancia_km <= 39.91
+|   |   |--- numericas__volumen_l <= 90.16
+|   |   |   |--- numericas__refrigerado <= 0.50
+|   |   |   |   |--- truncated branch of depth 5
+|   |   |   |--- numericas__refrigerado >  0.50
+|   |   |   |   |--- class: camioneta
+|   |   |--- numericas__volumen_l >  90.16
+|   |   |   |--- class: camioneta
+|   |--- numericas__distancia_km >  39.91
+|   |   |--- class: camioneta

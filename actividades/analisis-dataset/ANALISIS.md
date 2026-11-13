@@ -203,3 +203,27 @@ Las cuatro columnas de origen más importantes fueron distancia_km, volumen_l, c
 | drones_nuevos | 9942 | 0.9005 | 0.7224 | 1.0000 | 263 | 56 |
 
 **Trampa explícita, no válida como resultado comparable:** 728 IDs aparecen a ambos lados después de duplicar antes de separar. Métricas de esa prueba contaminada: `{"exactitud": 0.9428125, "precision_dron": 0.9583911234396671, "recall_dron": 0.9949604031677466, "predice_dron": 1442, "imposibles": 36}`. El resultado no mide generalización y cambia la prevalencia. **Parte C.** Mayor recall puede comprar falsos positivos; el submuestreo pierde ejemplos de regiones raras. Duplicar y ponderar pueden parecerse porque alteran el peso efectivo, aunque no garantizan el mismo árbol. Después de cambiar prevalencias, predict_proba no es confianza calibrada para la población original. **Parte D.** No desplegaría balanceo solo por recall: evaluaría costo y precisión del dron y conservaría las reglas. Comprar más drones requiere datos nuevos y revisar restricciones; duplicar filas viejas no representa mayor capacidad.
+
+
+## Actividad 6 — ¿Quién se equivoca: el modelo o los datos?
+
+| decision | costo_total | exceso_porcentaje |
+| --- | --- | --- |
+| optimo | 242269.9333 | 0.0000 |
+| etiquetas | 247788.5543 | 2.2779 |
+| modelo_con_reglas | 242689.0522 | 0.1730 |
+| entrenado_con_optimo | 242631.9267 | 0.1494 |
+
+**Desacuerdos con la etiqueta que recuperan el óptimo, por confusión:**
+
+| etiqueta | modelo | cantidad |
+| --- | --- | --- |
+| bicicleta | moto | 18 |
+| camioneta | bicicleta | 9 |
+| camioneta | dron | 4 |
+| camioneta | moto | 29 |
+| dron | bicicleta | 7 |
+| moto | bicicleta | 37 |
+| moto | dron | 3 |
+
+**Preguntas.** Óptimo/etiqueta coinciden 93.65%; el modelo sin reglas coincide con etiqueta 92.10% y con reglas 93.65%. Modelo con reglas/óptimo: 98.10%. De 127 desacuerdos con etiqueta, 107 recuperan el óptimo. El CSV de rescates indica cuáles confusiones de la actividad 3 no son peores decisiones según costo. El supuesto techo describe ruido difícil de predecir, no un límite estadístico probado. Comparar el costo con la última fila indica cuánto ayuda limpiar etiquetas; su costo humano debe compararse con ese ahorro. El alumno puede superar el costo de las etiquetas porque una hoja con varios ejemplos suaviza decisiones ruidosas; no aprende necesariamente cada error individual del operador. **Decisión:** si la fórmula ya es exacta y barata, usarla directamente. Con decisiones humanas sin fórmula, revisar resultados operativos y adjudicar una muestra; accuracy solo mide acuerdo con quien etiquetó.

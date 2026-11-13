@@ -1,0 +1,8 @@
+etiqueta,modelo,cantidad
+bicicleta,moto,18
+camioneta,bicicleta,9
+camioneta,dron,4
+camioneta,moto,29
+dron,bicicleta,7
+moto,bicicleta,37
+moto,dron,3

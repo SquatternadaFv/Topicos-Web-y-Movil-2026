@@ -1,0 +1,7 @@
+digraph G {graph [bgcolor="white", pad="0.35", nodesep="0.35", ranksep="0.5"]; node [shape=box, style="rounded,filled", fillcolor="#EAF1E8", color="#163B38", fontname="DejaVu Sans", fontsize=12, margin="0.2,0.14"]; edge [color="#45685E", fontname="DejaVu Sans", fontsize=10];rankdir=TB;
+ paquete [shape=record,label="{PAQUETE|id : PK\lcodigo : único\lnombre / descripción\lprecio : Decimal positivo\ltratamientos : JSON\lfotocromático / disponible / activo\l}"];
+ orden [shape=record,label="{ORDEN|id : PK\lfolio : UUID único\lclave_idempotencia : UUID única\lpaquete_id : FK PROTECT\lentradas : JSON\lresultado : JSON (snapshot)\lprecio_confirmado : Decimal\lcreada / estado\l}"];
+ paquete -> orden [label="1 → 0..N\nun paquete por orden"];
+ nota [label="El resultado conserva el precio y ranking originales\naunque el catálogo cambie después.",fillcolor="#FFF0CC"];
+ orden -> nota [style=dashed,arrowhead=none];
+}

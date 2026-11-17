@@ -1,0 +1,7 @@
+Historial local real de construccion asistida con IA. No representa trabajo manual previo del estudiante.
+No se ha publicado un repositorio remoto.
+
+4acf524 | 2026-11-10T16:39:06-06:00 | Documenta analisis, patrones, instalacion y evidencias de validacion
+d6a84f7 | 2026-11-10T16:39:06-06:00 | Verifica flujo con HTTP real y corrige actualizacion de busqueda en Flutter
+49a363f | 2026-11-10T16:31:06-06:00 | Implementa cliente Flutter adaptable y pruebas del flujo de confirmacion
+7b22f11 | 2026-11-10T16:22:14-06:00 | Implementa API Django, modelo entrenado y reglas comerciales con pruebas

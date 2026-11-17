@@ -1,0 +1,33 @@
+id,texto,intencion,origen,predicho,confianza_maxima
+detalle_producto-01,cuánto cuesta claridad,detalle_producto,redacción académica propia asistida; sin conversaciones reales,detalle_producto,0.3732765797069798
+explicar_recomendacion-09,explicación de mi resultado,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales,explicar_recomendacion,0.4156012864371061
+politicas-16,política de privacidad de la demostración,politicas,redacción académica propia asistida; sin conversaciones reales,politicas,0.2266593363089603
+saludo-19,hola cómo estás,saludo,redacción académica propia asistida; sin conversaciones reales,saludo,0.6914981954564118
+saludo-20,buenas necesito ayuda,saludo,redacción académica propia asistida; sin conversaciones reales,saludo,0.6265734956810419
+detalle_producto-18,precio actual de integral,detalle_producto,redacción académica propia asistida; sin conversaciones reales,detalle_producto,0.5382184081444759
+fuera_dominio-17,quiero reservar un hotel,fuera_dominio,redacción académica propia asistida; sin conversaciones reales,recomendar,0.4058257110343448
+politicas-14,qué dice su guía de cuidados,politicas,redacción académica propia asistida; sin conversaciones reales,explicar_recomendacion,0.29730425819520556
+explicar_recomendacion-18,explícame el resultado de mi orden,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales,seguimiento,0.44363994395634915
+recomendar-13,quisiera que el modelo evalúe mi perfil,recomendar,redacción académica propia asistida; sin conversaciones reales,explicar_recomendacion,0.35498136886780474
+catalogo-11,qué paquetes están activos,catalogo,redacción académica propia asistida; sin conversaciones reales,catalogo,0.719108054773804
+fuera_dominio-03,compra acciones de una empresa,fuera_dominio,redacción académica propia asistida; sin conversaciones reales,politicas,0.2664850586327382
+saludo-07,qué tal,saludo,redacción académica propia asistida; sin conversaciones reales,explicar_recomendacion,0.4311654203341491
+explicar_recomendacion-04,por qué cambiaron mi paquete,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales,explicar_recomendacion,0.7048446842074332
+fuera_dominio-14,traduce una canción al inglés,fuera_dominio,redacción académica propia asistida; sin conversaciones reales,recomendar,0.29120782734761136
+seguimiento-05,ya registraron mi solicitud,seguimiento,redacción académica propia asistida; sin conversaciones reales,seguimiento,0.7729370474729722
+seguimiento-15,mi solicitud ya está registrada,seguimiento,redacción académica propia asistida; sin conversaciones reales,seguimiento,0.6765269412746773
+recomendar-07,recomiéndame un paquete,recomendar,redacción académica propia asistida; sin conversaciones reales,recomendar,0.3081675913320442
+detalle_producto-12,tienen disponible integral,detalle_producto,redacción académica propia asistida; sin conversaciones reales,detalle_producto,0.33157965363691605
+catalogo-07,qué opciones de lentes tienen,catalogo,redacción académica propia asistida; sin conversaciones reales,catalogo,0.6888006092132483
+detalle_producto-02,qué incluye esencial,detalle_producto,redacción académica propia asistida; sin conversaciones reales,detalle_producto,0.5365753435931896
+politicas-15,qué puede y qué no puede hacer la aplicación,politicas,redacción académica propia asistida; sin conversaciones reales,explicar_recomendacion,0.25456400365114007
+explicar_recomendacion-07,por qué descartaron premium,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales,explicar_recomendacion,0.7239366493090391
+seguimiento-14,en qué estado está mi folio,seguimiento,redacción académica propia asistida; sin conversaciones reales,seguimiento,0.43179255747297274
+saludo-09,buen día quiero ayuda,saludo,redacción académica propia asistida; sin conversaciones reales,saludo,0.3871807058894771
+catalogo-08,puedo ver los productos,catalogo,redacción académica propia asistida; sin conversaciones reales,catalogo,0.40942220505377647
+seguimiento-03,rastrear solicitud <folio>,seguimiento,redacción académica propia asistida; sin conversaciones reales,seguimiento,0.6538144114212301
+recomendar-01,qué paquete me recomiendas,recomendar,redacción académica propia asistida; sin conversaciones reales,recomendar,0.3988649978606229
+recomendar-15,quiero completar el perfil para recomendar,recomendar,redacción académica propia asistida; sin conversaciones reales,recomendar,0.32460105213206325
+politicas-04,qué significa una garantía en esta demo,politicas,redacción académica propia asistida; sin conversaciones reales,politicas,0.19109065454475652
+catalogo-15,enséñame el catálogo de la óptica,catalogo,redacción académica propia asistida; sin conversaciones reales,catalogo,0.3870273673850235
+fuera_dominio-15,cuál equipo ganó el torneo,fuera_dominio,redacción académica propia asistida; sin conversaciones reales,fuera_dominio,0.28122846365688964

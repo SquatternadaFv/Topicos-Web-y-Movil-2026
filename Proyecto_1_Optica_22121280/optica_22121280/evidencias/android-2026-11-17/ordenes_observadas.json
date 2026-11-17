@@ -1,0 +1,160 @@
+[
+  {
+    "folio": "2740f288-0360-4109-a3b8-f83156729a8c",
+    "estado": "registrada",
+    "creada": "2026-11-17T18:15:15.769718+00:00",
+    "precio_confirmado": "2400.00",
+    "entradas": {
+      "horas_pantalla": 14.0,
+      "horas_exterior": 4.0,
+      "presupuesto": 6000.0,
+      "uso_principal": "oficina",
+      "prefiere_fotocromatico": false
+    },
+    "recomendacion": {
+      "entradas": {
+        "horas_pantalla": 14.0,
+        "horas_exterior": 4.0,
+        "presupuesto": 6000.0,
+        "uso_principal": "oficina",
+        "prefiere_fotocromatico": false
+      },
+      "paquete": {
+        "codigo": "premium",
+        "nombre": "Integral",
+        "descripcion": "Combina tratamientos del catálogo en un solo paquete.",
+        "precio": "2400.00",
+        "tratamientos": [
+          "Lente monofocal base",
+          "Antirreflejante",
+          "Fotocromático",
+          "Capa endurecida"
+        ],
+        "fotocromatico": true,
+        "disponible": true
+      },
+      "original": "premium",
+      "confianza_original": 1.0,
+      "confianza": 1.0,
+      "corregido": false,
+      "motivo": "La primera opción del modelo cumple todas las reglas comerciales.",
+      "ranking": [
+        {
+          "codigo": "premium",
+          "nombre": "Integral",
+          "precio": "2400.00",
+          "probabilidad": 1.0,
+          "elegible": true,
+          "motivos": []
+        },
+        {
+          "codigo": "antirreflejante",
+          "nombre": "Claridad",
+          "precio": "1100.00",
+          "probabilidad": 0.0,
+          "elegible": true,
+          "motivos": []
+        },
+        {
+          "codigo": "esencial",
+          "nombre": "Esencial",
+          "precio": "650.00",
+          "probabilidad": 0.0,
+          "elegible": true,
+          "motivos": []
+        },
+        {
+          "codigo": "fotocromatico",
+          "nombre": "Transición",
+          "precio": "1800.00",
+          "probabilidad": 0.0,
+          "elegible": true,
+          "motivos": []
+        }
+      ],
+      "version_modelo": "optica-v1-f68e75c47161",
+      "aviso": "Orientación comercial académica con datos sintéticos. No determina graduación ni sustituye una valoración profesional."
+    }
+  },
+  {
+    "folio": "fc74e8b0-bf70-46ed-99af-3b471fbe0f0e",
+    "estado": "registrada",
+    "creada": "2026-11-17T17:51:24.768823+00:00",
+    "precio_confirmado": "2400.00",
+    "entradas": {
+      "horas_pantalla": 14.0,
+      "horas_exterior": 3.0,
+      "presupuesto": 2500.0,
+      "uso_principal": "oficina",
+      "prefiere_fotocromatico": true
+    },
+    "recomendacion": {
+      "entradas": {
+        "horas_pantalla": 14.0,
+        "horas_exterior": 3.0,
+        "presupuesto": 2500.0,
+        "uso_principal": "oficina",
+        "prefiere_fotocromatico": true
+      },
+      "paquete": {
+        "codigo": "premium",
+        "nombre": "Integral",
+        "descripcion": "Combina tratamientos del catálogo en un solo paquete.",
+        "precio": "2400.00",
+        "tratamientos": [
+          "Lente monofocal base",
+          "Antirreflejante",
+          "Fotocromático",
+          "Capa endurecida"
+        ],
+        "fotocromatico": true,
+        "disponible": true
+      },
+      "original": "antirreflejante",
+      "confianza_original": 0.8125,
+      "confianza": 0.125,
+      "corregido": true,
+      "motivo": "Se descartó la primera opción: No satisface la preferencia explícita de fotocromático.",
+      "ranking": [
+        {
+          "codigo": "antirreflejante",
+          "nombre": "Claridad",
+          "precio": "1100.00",
+          "probabilidad": 0.8125,
+          "elegible": false,
+          "motivos": [
+            "No satisface la preferencia explícita de fotocromático."
+          ]
+        },
+        {
+          "codigo": "premium",
+          "nombre": "Integral",
+          "precio": "2400.00",
+          "probabilidad": 0.125,
+          "elegible": true,
+          "motivos": []
+        },
+        {
+          "codigo": "fotocromatico",
+          "nombre": "Transición",
+          "precio": "1800.00",
+          "probabilidad": 0.0625,
+          "elegible": true,
+          "motivos": []
+        },
+        {
+          "codigo": "esencial",
+          "nombre": "Esencial",
+          "precio": "650.00",
+          "probabilidad": 0.0,
+          "elegible": false,
+          "motivos": [
+            "No satisface la preferencia explícita de fotocromático."
+          ]
+        }
+      ],
+      "version_modelo": "optica-v1-f68e75c47161",
+      "aviso": "Orientación comercial académica con datos sintéticos. No determina graduación ni sustituye una valoración profesional."
+    }
+  }
+]

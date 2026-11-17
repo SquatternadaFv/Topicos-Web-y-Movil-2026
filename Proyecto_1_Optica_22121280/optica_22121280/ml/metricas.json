@@ -1,0 +1,81 @@
+{
+  "version": "optica-v1-f68e75c47161",
+  "sklearn": "1.8.0",
+  "origen": "sintético; no validación clínica ni evidencia de eficacia",
+  "filas": 1200,
+  "entrenamiento": 960,
+  "prueba": 240,
+  "semilla_split": 42,
+  "accuracy": 0.9375,
+  "clases": [
+    "antirreflejante",
+    "esencial",
+    "fotocromatico",
+    "premium"
+  ],
+  "matriz_confusion": [
+    [
+      38,
+      0,
+      2,
+      3
+    ],
+    [
+      0,
+      19,
+      0,
+      4
+    ],
+    [
+      0,
+      0,
+      67,
+      4
+    ],
+    [
+      0,
+      1,
+      1,
+      101
+    ]
+  ],
+  "reporte": {
+    "antirreflejante": {
+      "precision": 1.0,
+      "recall": 0.8837209302325582,
+      "f1-score": 0.9382716049382716,
+      "support": 43.0
+    },
+    "esencial": {
+      "precision": 0.95,
+      "recall": 0.8260869565217391,
+      "f1-score": 0.8837209302325582,
+      "support": 23.0
+    },
+    "fotocromatico": {
+      "precision": 0.9571428571428572,
+      "recall": 0.9436619718309859,
+      "f1-score": 0.950354609929078,
+      "support": 71.0
+    },
+    "premium": {
+      "precision": 0.9017857142857143,
+      "recall": 0.9805825242718447,
+      "f1-score": 0.9395348837209302,
+      "support": 103.0
+    },
+    "accuracy": 0.9375,
+    "macro avg": {
+      "precision": 0.9522321428571429,
+      "recall": 0.908513095714282,
+      "f1-score": 0.9279705072052096,
+      "support": 240.0
+    },
+    "weighted avg": {
+      "precision": 0.9403794642857143,
+      "recall": 0.9375,
+      "f1-score": 0.9371605447329787,
+      "support": 240.0
+    }
+  }
+}

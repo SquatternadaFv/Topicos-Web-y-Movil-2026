@@ -1,0 +1,42 @@
+{
+  "modelo_optica.joblib": {
+    "version": "optica-v1-f68e75c47161",
+    "sklearn": "1.8.0",
+    "dataset": "ml\\datos\\perfiles_optica.csv",
+    "sha256_dataset": "f68e75c4716135d35067ae0ae2b5745a998a5546fff77a7cf28cde85acdaa5a1",
+    "filas": 1200,
+    "entrenamiento": 960,
+    "prueba": 240,
+    "accuracy_recalculada_artefacto_guardado": 0.9375,
+    "clases": {
+      "premium": 516,
+      "fotocromatico": 354,
+      "antirreflejante": 214,
+      "esencial": 116
+    }
+  },
+  "modelo_asistente.joblib": {
+    "version": "asistente-v1-cb544a468f18",
+    "sklearn": "1.8.0",
+    "dataset": "ml\\datos\\intenciones_optica.csv",
+    "sha256_dataset": "cb544a468f188f1380cd57660af1147434814b0b34ebd62861eb034df806fc5b",
+    "filas": 160,
+    "entrenamiento": 128,
+    "prueba": 32,
+    "accuracy_recalculada_artefacto_guardado": 0.75,
+    "clases": {
+      "saludo": 20,
+      "catalogo": 20,
+      "detalle_producto": 20,
+      "seguimiento": 20,
+      "explicar_recomendacion": 20,
+      "recomendar": 20,
+      "politicas": 20,
+      "fuera_dominio": 20
+    }
+  },
+  "corpus": {
+    "documentos": 6,
+    "sha256": "86c78f74ab6ddfd3b8820fab165824ea903144f0042b24815a40b0108e59353a"
+  }
+}

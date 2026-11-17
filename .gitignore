@@ -10,6 +10,7 @@ __pycache__/
 *.ipr
 *.iws
 build/
+*.apk
 .flutter-plugins-dependencies
 local.properties
 flutter_export_environment.sh
@@ -19,3 +20,5 @@ flutter_export_environment.sh
 .DS_Store
 Thumbs.db
 .pytest_cache/
+.herramientas/
+/Proyecto_1_Optica_22121280/*.zip

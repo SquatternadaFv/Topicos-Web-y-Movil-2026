@@ -1,0 +1,10 @@
+* text=auto eol=lf
+*.cmd text eol=crlf
+*.bat text eol=crlf
+# Los hashes/versiones de entrenamiento dependen de estos bytes exactos.
+*.csv -text
+ml/corpus_optica.json -text
+*.pdf binary
+*.png binary
+*.joblib binary
+*.sqlite3 binary

@@ -1,0 +1,68 @@
+{
+  "entradas": {
+    "horas_pantalla": 8.0,
+    "horas_exterior": 1.0,
+    "presupuesto": 700.0,
+    "uso_principal": "oficina",
+    "prefiere_fotocromatico": false
+  },
+  "paquete": {
+    "codigo": "esencial",
+    "nombre": "Esencial",
+    "descripcion": "Una opción accesible para el uso cotidiano.",
+    "precio": "650.00",
+    "tratamientos": [
+      "Lente monofocal base",
+      "Capa endurecida"
+    ],
+    "fotocromatico": false,
+    "disponible": true
+  },
+  "original": "antirreflejante",
+  "confianza_original": 0.85,
+  "confianza": 0.0,
+  "corregido": true,
+  "motivo": "Se descartó la primera opción: Precio $1100.00 superior al presupuesto $700.00.",
+  "ranking": [
+    {
+      "codigo": "antirreflejante",
+      "nombre": "Claridad",
+      "precio": "1100.00",
+      "probabilidad": 0.85,
+      "elegible": false,
+      "motivos": [
+        "Precio $1100.00 superior al presupuesto $700.00."
+      ]
+    },
+    {
+      "codigo": "fotocromatico",
+      "nombre": "Transición",
+      "precio": "1800.00",
+      "probabilidad": 0.1,
+      "elegible": false,
+      "motivos": [
+        "Precio $1800.00 superior al presupuesto $700.00."
+      ]
+    },
+    {
+      "codigo": "premium",
+      "nombre": "Integral",
+      "precio": "2400.00",
+      "probabilidad": 0.05,
+      "elegible": false,
+      "motivos": [
+        "Precio $2400.00 superior al presupuesto $700.00."
+      ]
+    },
+    {
+      "codigo": "esencial",
+      "nombre": "Esencial",
+      "precio": "650.00",
+      "probabilidad": 0.0,
+      "elegible": true,
+      "motivos": []
+    }
+  ],
+  "version_modelo": "optica-v1-f68e75c47161",
+  "aviso": "Orientación comercial académica con datos sintéticos. No determina graduación ni sustituye una valoración profesional."
+}

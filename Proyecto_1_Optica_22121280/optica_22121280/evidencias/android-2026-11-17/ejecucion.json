@@ -1,0 +1,25 @@
+{
+  "fecha": "2026-11-17",
+  "dispositivo": "emulator-5554",
+  "avd": "Medium_Phone_API_37.0",
+  "api_android": "37",
+  "arranque_completo": "1",
+  "pid_app": "2602",
+  "redireccion": "host-15 tcp:8000 tcp:8000",
+  "textos_ui": [
+    "Back",
+    "Solicitud registrada",
+    "Lente monofocal base",
+    "Antirreflejante",
+    "Fotocromático",
+    "Capa endurecida",
+    "Modelo y reglas coinciden\nLa primera opción del modelo cumple todas las reglas comerciales.\nOpción original: premium · 100.0%\nConfianza del modelo para la opción final: 100.0%",
+    "Todas las alternativas",
+    "100, Integral\n100.0%\nCumple las reglas · $2400.00 MXN",
+    "0, Claridad\n0.0%\nCumple las reglas · $1100.00 MXN",
+    "0, Esencial\n0.0%\nCumple las reglas · $650.00 MXN",
+    "0, Transición\n0.0%\nCumple las reglas · $1800.00 MXN",
+    "La confianza expresa la distribución del modelo entrenado; no es garantía de calidad ni probabilidad de éxito clínico. Las reglas pueden elegir una alternativa con baja confianza.",
+    "Orientación comercial académica con datos sintéticos. No determina graduación ni sustituye una valoración profesional."
+  ]
+}

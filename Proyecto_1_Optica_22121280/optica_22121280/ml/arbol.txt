@@ -1,0 +1,109 @@
+|--- numericas__horas_pantalla <= 6.50
+|   |--- numericas__horas_exterior <= 3.50
+|   |   |--- categoricas__uso_principal_exterior <= 0.50
+|   |   |   |--- numericas__horas_pantalla <= 4.50
+|   |   |   |   |--- numericas__presupuesto <= 850.00
+|   |   |   |   |   |--- class: esencial
+|   |   |   |   |--- numericas__presupuesto >  850.00
+|   |   |   |   |   |--- numericas__presupuesto <= 2500.00
+|   |   |   |   |   |   |--- class: esencial
+|   |   |   |   |   |--- numericas__presupuesto >  2500.00
+|   |   |   |   |   |   |--- class: esencial
+|   |   |   |--- numericas__horas_pantalla >  4.50
+|   |   |   |   |--- class: antirreflejante
+|   |   |--- categoricas__uso_principal_exterior >  0.50
+|   |   |   |--- numericas__presupuesto <= 2500.00
+|   |   |   |   |--- class: fotocromatico
+|   |   |   |--- numericas__presupuesto >  2500.00
+|   |   |   |   |--- class: fotocromatico
+|   |--- numericas__horas_exterior >  3.50
+|   |   |--- numericas__prefiere_fotocromatico <= 0.50
+|   |   |   |--- numericas__presupuesto <= 600.00
+|   |   |   |   |--- numericas__horas_exterior <= 6.50
+|   |   |   |   |   |--- class: fotocromatico
+|   |   |   |   |--- numericas__horas_exterior >  6.50
+|   |   |   |   |   |--- class: fotocromatico
+|   |   |   |--- numericas__presupuesto >  600.00
+|   |   |   |   |--- numericas__presupuesto <= 2500.00
+|   |   |   |   |   |--- numericas__horas_pantalla <= 5.50
+|   |   |   |   |   |   |--- class: fotocromatico
+|   |   |   |   |   |--- numericas__horas_pantalla >  5.50
+|   |   |   |   |   |   |--- class: fotocromatico
+|   |   |   |   |--- numericas__presupuesto >  2500.00
+|   |   |   |   |   |--- numericas__horas_exterior <= 6.50
+|   |   |   |   |   |   |--- class: fotocromatico
+|   |   |   |   |   |--- numericas__horas_exterior >  6.50
+|   |   |   |   |   |   |--- class: fotocromatico
+|   |   |--- numericas__prefiere_fotocromatico >  0.50
+|   |   |   |--- numericas__horas_exterior <= 8.50
+|   |   |   |   |--- numericas__horas_pantalla <= 4.50
+|   |   |   |   |   |--- numericas__horas_exterior <= 6.50
+|   |   |   |   |   |   |--- class: fotocromatico
+|   |   |   |   |   |--- numericas__horas_exterior >  6.50
+|   |   |   |   |   |   |--- class: fotocromatico
+|   |   |   |   |--- numericas__horas_pantalla >  4.50
+|   |   |   |   |   |--- class: fotocromatico
+|   |   |   |--- numericas__horas_exterior >  8.50
+|   |   |   |   |--- class: fotocromatico
+|--- numericas__horas_pantalla >  6.50
+|   |--- numericas__horas_exterior <= 3.50
+|   |   |--- categoricas__uso_principal_exterior <= 0.50
+|   |   |   |--- numericas__presupuesto <= 850.00
+|   |   |   |   |--- numericas__horas_pantalla <= 12.50
+|   |   |   |   |   |--- class: antirreflejante
+|   |   |   |   |--- numericas__horas_pantalla >  12.50
+|   |   |   |   |   |--- class: antirreflejante
+|   |   |   |--- numericas__presupuesto >  850.00
+|   |   |   |   |--- numericas__prefiere_fotocromatico <= 0.50
+|   |   |   |   |   |--- numericas__presupuesto <= 2500.00
+|   |   |   |   |   |   |--- class: antirreflejante
+|   |   |   |   |   |--- numericas__presupuesto >  2500.00
+|   |   |   |   |   |   |--- class: antirreflejante
+|   |   |   |   |--- numericas__prefiere_fotocromatico >  0.50
+|   |   |   |   |   |--- numericas__presupuesto <= 1750.00
+|   |   |   |   |   |   |--- class: antirreflejante
+|   |   |   |   |   |--- numericas__presupuesto >  1750.00
+|   |   |   |   |   |   |--- class: antirreflejante
+|   |   |--- categoricas__uso_principal_exterior >  0.50
+|   |   |   |--- numericas__horas_pantalla <= 11.50
+|   |   |   |   |--- numericas__horas_exterior <= 1.50
+|   |   |   |   |   |--- class: premium
+|   |   |   |   |--- numericas__horas_exterior >  1.50
+|   |   |   |   |   |--- class: premium
+|   |   |   |--- numericas__horas_pantalla >  11.50
+|   |   |   |   |--- class: premium
+|   |--- numericas__horas_exterior >  3.50
+|   |   |--- numericas__presupuesto <= 1750.00
+|   |   |   |--- numericas__horas_pantalla <= 10.50
+|   |   |   |   |--- numericas__horas_pantalla <= 7.50
+|   |   |   |   |   |--- class: premium
+|   |   |   |   |--- numericas__horas_pantalla >  7.50
+|   |   |   |   |   |--- numericas__horas_exterior <= 5.50
+|   |   |   |   |   |   |--- class: premium
+|   |   |   |   |   |--- numericas__horas_exterior >  5.50
+|   |   |   |   |   |   |--- class: premium
+|   |   |   |--- numericas__horas_pantalla >  10.50
+|   |   |   |   |--- numericas__horas_pantalla <= 11.50
+|   |   |   |   |   |--- class: premium
+|   |   |   |   |--- numericas__horas_pantalla >  11.50
+|   |   |   |   |   |--- numericas__horas_pantalla <= 13.50
+|   |   |   |   |   |   |--- class: premium
+|   |   |   |   |   |--- numericas__horas_pantalla >  13.50
+|   |   |   |   |   |   |--- class: premium
+|   |   |--- numericas__presupuesto >  1750.00
+|   |   |   |--- numericas__horas_exterior <= 5.50
+|   |   |   |   |--- numericas__horas_pantalla <= 13.50
+|   |   |   |   |   |--- class: premium
+|   |   |   |   |--- numericas__horas_pantalla >  13.50
+|   |   |   |   |   |--- class: premium
+|   |   |   |--- numericas__horas_exterior >  5.50
+|   |   |   |   |--- categoricas__uso_principal_general <= 0.50
+|   |   |   |   |   |--- categoricas__uso_principal_oficina <= 0.50
+|   |   |   |   |   |   |--- class: premium
+|   |   |   |   |   |--- categoricas__uso_principal_oficina >  0.50
+|   |   |   |   |   |   |--- class: premium
+|   |   |   |   |--- categoricas__uso_principal_general >  0.50
+|   |   |   |   |   |--- numericas__horas_pantalla <= 10.50
+|   |   |   |   |   |   |--- class: premium
+|   |   |   |   |   |--- numericas__horas_pantalla >  10.50
+|   |   |   |   |   |   |--- class: premium

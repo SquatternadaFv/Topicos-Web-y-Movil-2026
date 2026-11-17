@@ -1,6 +1,6 @@
 # Estado de actividades
 
-Alcance confirmado: las actividades de los apuntes, sin proyectos 1, 2 y 3. No incluye las cinco auditorías adicionales de otros sistemas. Estado de archivos y verificaciones, no calificación del docente.
+Esta tabla conserva el alcance de la revisión de actividades: sin proyectos 1, 2 y 3 ni las cinco auditorías adicionales de otros sistemas. La revisión posterior solicitada el 17/11/2026 incorpora P1 y P2 en [Proyecto_1_Optica_22121280](Proyecto_1_Optica_22121280/EMPIEZA_AQUI.md), con su propia matriz y validación. P3 sigue fuera del alcance. Estado de archivos y verificaciones, no calificación del docente.
 
 | Bloque | Estado local | Evidencia o límite |
 |---|---|---|

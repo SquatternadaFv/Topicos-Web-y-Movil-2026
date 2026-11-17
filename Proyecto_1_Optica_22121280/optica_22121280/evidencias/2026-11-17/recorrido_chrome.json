@@ -1,0 +1,452 @@
+{
+  "origen": "Chrome headless / Flutter web compilado / Django y modelo reales",
+  "navegador": "151.0.7922.34",
+  "folio": "b9befbeb-3bc7-4165-97e5-38dd80a0d8f1",
+  "recomendacion": {
+    "entradas": {
+      "horas_pantalla": 8.0,
+      "horas_exterior": 1.0,
+      "presupuesto": 700.0,
+      "uso_principal": "oficina",
+      "prefiere_fotocromatico": false
+    },
+    "paquete": {
+      "codigo": "esencial",
+      "nombre": "Esencial",
+      "descripcion": "Una opción accesible para el uso cotidiano.",
+      "precio": "650.00",
+      "tratamientos": [
+        "Lente monofocal base",
+        "Capa endurecida"
+      ],
+      "fotocromatico": false,
+      "disponible": true
+    },
+    "original": "antirreflejante",
+    "confianza_original": 0.85,
+    "confianza": 0.0,
+    "corregido": true,
+    "motivo": "Se descartó la primera opción: Precio $1100.00 superior al presupuesto $700.00.",
+    "ranking": [
+      {
+        "codigo": "antirreflejante",
+        "nombre": "Claridad",
+        "precio": "1100.00",
+        "probabilidad": 0.85,
+        "elegible": false,
+        "motivos": [
+          "Precio $1100.00 superior al presupuesto $700.00."
+        ]
+      },
+      {
+        "codigo": "fotocromatico",
+        "nombre": "Transición",
+        "precio": "1800.00",
+        "probabilidad": 0.1,
+        "elegible": false,
+        "motivos": [
+          "Precio $1800.00 superior al presupuesto $700.00."
+        ]
+      },
+      {
+        "codigo": "premium",
+        "nombre": "Integral",
+        "precio": "2400.00",
+        "probabilidad": 0.05,
+        "elegible": false,
+        "motivos": [
+          "Precio $2400.00 superior al presupuesto $700.00."
+        ]
+      },
+      {
+        "codigo": "esencial",
+        "nombre": "Esencial",
+        "precio": "650.00",
+        "probabilidad": 0.0,
+        "elegible": true,
+        "motivos": []
+      }
+    ],
+    "version_modelo": "optica-v1-f68e75c47161",
+    "aviso": "Orientación comercial académica con datos sintéticos. No determina graduación ni sustituye una valoración profesional."
+  },
+  "orden": {
+    "folio": "b9befbeb-3bc7-4165-97e5-38dd80a0d8f1",
+    "estado": "registrada",
+    "creada": "2026-11-17T17:48:19.826951+00:00",
+    "precio_confirmado": "650.00",
+    "entradas": {
+      "horas_pantalla": 8.0,
+      "horas_exterior": 1.0,
+      "presupuesto": 700.0,
+      "uso_principal": "oficina",
+      "prefiere_fotocromatico": false
+    },
+    "recomendacion": {
+      "entradas": {
+        "horas_pantalla": 8.0,
+        "horas_exterior": 1.0,
+        "presupuesto": 700.0,
+        "uso_principal": "oficina",
+        "prefiere_fotocromatico": false
+      },
+      "paquete": {
+        "codigo": "esencial",
+        "nombre": "Esencial",
+        "descripcion": "Una opción accesible para el uso cotidiano.",
+        "precio": "650.00",
+        "tratamientos": [
+          "Lente monofocal base",
+          "Capa endurecida"
+        ],
+        "fotocromatico": false,
+        "disponible": true
+      },
+      "original": "antirreflejante",
+      "confianza_original": 0.85,
+      "confianza": 0.0,
+      "corregido": true,
+      "motivo": "Se descartó la primera opción: Precio $1100.00 superior al presupuesto $700.00.",
+      "ranking": [
+        {
+          "codigo": "antirreflejante",
+          "nombre": "Claridad",
+          "precio": "1100.00",
+          "probabilidad": 0.85,
+          "elegible": false,
+          "motivos": [
+            "Precio $1100.00 superior al presupuesto $700.00."
+          ]
+        },
+        {
+          "codigo": "fotocromatico",
+          "nombre": "Transición",
+          "precio": "1800.00",
+          "probabilidad": 0.1,
+          "elegible": false,
+          "motivos": [
+            "Precio $1800.00 superior al presupuesto $700.00."
+          ]
+        },
+        {
+          "codigo": "premium",
+          "nombre": "Integral",
+          "precio": "2400.00",
+          "probabilidad": 0.05,
+          "elegible": false,
+          "motivos": [
+            "Precio $2400.00 superior al presupuesto $700.00."
+          ]
+        },
+        {
+          "codigo": "esencial",
+          "nombre": "Esencial",
+          "precio": "650.00",
+          "probabilidad": 0.0,
+          "elegible": true,
+          "motivos": []
+        }
+      ],
+      "version_modelo": "optica-v1-f68e75c47161",
+      "aviso": "Orientación comercial académica con datos sintéticos. No determina graduación ni sustituye una valoración profesional."
+    }
+  },
+  "consulta_identica": true,
+  "sin_opciones_http": 422,
+  "errores_javascript": [],
+  "asistente": [
+    {
+      "mensaje": "hola",
+      "resultado": {
+        "intencion": "saludo",
+        "confianza_intencion": 0.940955,
+        "version_asistente": "asistente-v1-cb544a468f18",
+        "fuentes": [],
+        "accion": null,
+        "datos": {},
+        "respuesta": "Hola. Soy el asistente de Lúmina. Puedo consultar catálogo, explicar una orden por su folio y orientarte al recomendador."
+      }
+    },
+    {
+      "mensaje": "qué paquetes ofrecen",
+      "resultado": {
+        "intencion": "catalogo",
+        "confianza_intencion": 0.733742,
+        "version_asistente": "asistente-v1-cb544a468f18",
+        "fuentes": [],
+        "accion": null,
+        "datos": {
+          "paquetes": [
+            {
+              "codigo": "esencial",
+              "nombre": "Esencial",
+              "descripcion": "Una opción accesible para el uso cotidiano.",
+              "precio": "650.00",
+              "tratamientos": [
+                "Lente monofocal base",
+                "Capa endurecida"
+              ],
+              "fotocromatico": false,
+              "disponible": true
+            },
+            {
+              "codigo": "antirreflejante",
+              "nombre": "Claridad",
+              "descripcion": "Paquete con tratamiento antirreflejante para preferencias de uso en interiores.",
+              "precio": "1100.00",
+              "tratamientos": [
+                "Lente monofocal base",
+                "Antirreflejante",
+                "Capa endurecida"
+              ],
+              "fotocromatico": false,
+              "disponible": true
+            },
+            {
+              "codigo": "fotocromatico",
+              "nombre": "Transición",
+              "descripcion": "Tratamiento fotocromático para quien prefiere adaptación de tono en exteriores.",
+              "precio": "1800.00",
+              "tratamientos": [
+                "Lente monofocal base",
+                "Fotocromático",
+                "Capa endurecida"
+              ],
+              "fotocromatico": true,
+              "disponible": true
+            },
+            {
+              "codigo": "premium",
+              "nombre": "Integral",
+              "descripcion": "Combina tratamientos del catálogo en un solo paquete.",
+              "precio": "2400.00",
+              "tratamientos": [
+                "Lente monofocal base",
+                "Antirreflejante",
+                "Fotocromático",
+                "Capa endurecida"
+              ],
+              "fotocromatico": true,
+              "disponible": true
+            }
+          ]
+        },
+        "respuesta": "Catálogo actual: Esencial: $650.00 MXN; Claridad: $1100.00 MXN; Transición: $1800.00 MXN; Integral: $2400.00 MXN"
+      }
+    },
+    {
+      "mensaje": "quiero rastrear mi orden",
+      "resultado": {
+        "intencion": "seguimiento",
+        "confianza_intencion": 0.728365,
+        "version_asistente": "asistente-v1-cb544a468f18",
+        "fuentes": [],
+        "accion": null,
+        "datos": {
+          "folio": "b9befbeb-3bc7-4165-97e5-38dd80a0d8f1",
+          "encontrada": true,
+          "estado": "registrada",
+          "precio_confirmado": "650.00",
+          "recomendacion": {
+            "entradas": {
+              "horas_pantalla": 8.0,
+              "horas_exterior": 1.0,
+              "presupuesto": 700.0,
+              "uso_principal": "oficina",
+              "prefiere_fotocromatico": false
+            },
+            "paquete": {
+              "codigo": "esencial",
+              "nombre": "Esencial",
+              "descripcion": "Una opción accesible para el uso cotidiano.",
+              "precio": "650.00",
+              "tratamientos": [
+                "Lente monofocal base",
+                "Capa endurecida"
+              ],
+              "fotocromatico": false,
+              "disponible": true
+            },
+            "original": "antirreflejante",
+            "confianza_original": 0.85,
+            "confianza": 0.0,
+            "corregido": true,
+            "motivo": "Se descartó la primera opción: Precio $1100.00 superior al presupuesto $700.00.",
+            "ranking": [
+              {
+                "codigo": "antirreflejante",
+                "nombre": "Claridad",
+                "precio": "1100.00",
+                "probabilidad": 0.85,
+                "elegible": false,
+                "motivos": [
+                  "Precio $1100.00 superior al presupuesto $700.00."
+                ]
+              },
+              {
+                "codigo": "fotocromatico",
+                "nombre": "Transición",
+                "precio": "1800.00",
+                "probabilidad": 0.1,
+                "elegible": false,
+                "motivos": [
+                  "Precio $1800.00 superior al presupuesto $700.00."
+                ]
+              },
+              {
+                "codigo": "premium",
+                "nombre": "Integral",
+                "precio": "2400.00",
+                "probabilidad": 0.05,
+                "elegible": false,
+                "motivos": [
+                  "Precio $2400.00 superior al presupuesto $700.00."
+                ]
+              },
+              {
+                "codigo": "esencial",
+                "nombre": "Esencial",
+                "precio": "650.00",
+                "probabilidad": 0.0,
+                "elegible": true,
+                "motivos": []
+              }
+            ],
+            "version_modelo": "optica-v1-f68e75c47161",
+            "aviso": "Orientación comercial académica con datos sintéticos. No determina graduación ni sustituye una valoración profesional."
+          }
+        },
+        "respuesta": "La solicitud b9befbeb-3bc7-4165-97e5-38dd80a0d8f1 está registrada. Paquete registrado: Esencial; total confirmado $650.00 MXN. Este estado no acredita fabricación o retiro."
+      }
+    },
+    {
+      "mensaje": "explica mi orden",
+      "resultado": {
+        "intencion": "explicar_recomendacion",
+        "confianza_intencion": 0.557365,
+        "version_asistente": "asistente-v1-cb544a468f18",
+        "fuentes": [],
+        "accion": null,
+        "datos": {
+          "folio": "b9befbeb-3bc7-4165-97e5-38dd80a0d8f1",
+          "encontrada": true,
+          "estado": "registrada",
+          "precio_confirmado": "650.00",
+          "recomendacion": {
+            "entradas": {
+              "horas_pantalla": 8.0,
+              "horas_exterior": 1.0,
+              "presupuesto": 700.0,
+              "uso_principal": "oficina",
+              "prefiere_fotocromatico": false
+            },
+            "paquete": {
+              "codigo": "esencial",
+              "nombre": "Esencial",
+              "descripcion": "Una opción accesible para el uso cotidiano.",
+              "precio": "650.00",
+              "tratamientos": [
+                "Lente monofocal base",
+                "Capa endurecida"
+              ],
+              "fotocromatico": false,
+              "disponible": true
+            },
+            "original": "antirreflejante",
+            "confianza_original": 0.85,
+            "confianza": 0.0,
+            "corregido": true,
+            "motivo": "Se descartó la primera opción: Precio $1100.00 superior al presupuesto $700.00.",
+            "ranking": [
+              {
+                "codigo": "antirreflejante",
+                "nombre": "Claridad",
+                "precio": "1100.00",
+                "probabilidad": 0.85,
+                "elegible": false,
+                "motivos": [
+                  "Precio $1100.00 superior al presupuesto $700.00."
+                ]
+              },
+              {
+                "codigo": "fotocromatico",
+                "nombre": "Transición",
+                "precio": "1800.00",
+                "probabilidad": 0.1,
+                "elegible": false,
+                "motivos": [
+                  "Precio $1800.00 superior al presupuesto $700.00."
+                ]
+              },
+              {
+                "codigo": "premium",
+                "nombre": "Integral",
+                "precio": "2400.00",
+                "probabilidad": 0.05,
+                "elegible": false,
+                "motivos": [
+                  "Precio $2400.00 superior al presupuesto $700.00."
+                ]
+              },
+              {
+                "codigo": "esencial",
+                "nombre": "Esencial",
+                "precio": "650.00",
+                "probabilidad": 0.0,
+                "elegible": true,
+                "motivos": []
+              }
+            ],
+            "version_modelo": "optica-v1-f68e75c47161",
+            "aviso": "Orientación comercial académica con datos sintéticos. No determina graduación ni sustituye una valoración profesional."
+          }
+        },
+        "respuesta": "En la solicitud b9befbeb-3bc7-4165-97e5-38dd80a0d8f1, el modelo propuso antirreflejante con confianza 85.0%. El paquete registrado fue Esencial, con confianza del modelo 0.0%. Se descartó la primera opción: Precio $1100.00 superior al presupuesto $700.00. Se consultó el resultado histórico, sin volver a predecir."
+      }
+    },
+    {
+      "mensaje": "cuál es el horario de atención",
+      "resultado": {
+        "intencion": "politicas",
+        "confianza_intencion": 0.695235,
+        "version_asistente": "asistente-v1-cb544a468f18",
+        "fuentes": [
+          {
+            "id": "horario",
+            "titulo": "Horario y atención de la óptica ficticia",
+            "version": "1.0",
+            "origen": "ml/corpus_optica.json",
+            "similitud": 0.310313
+          }
+        ],
+        "accion": null,
+        "datos": {},
+        "respuesta": "Esta aplicación no representa una sucursal en funcionamiento y no existe un horario de atención confirmado. El asistente no debe inventar horas de apertura, disponibilidad de citas ni prometer que habrá personal presente. Para un establecimiento real se incorporaría un documento autorizado por sucursal, con días, excepciones, responsable y fecha de vigencia. El servidor local puede usarse durante la exposición mientras sus procesos estén activos; eso es disponibilidad técnica de la demo, no horario de una tienda."
+      }
+    },
+    {
+      "mensaje": "quién ganó el partido de fútbol",
+      "resultado": {
+        "intencion": "fuera_dominio",
+        "confianza_intencion": 0.683765,
+        "version_asistente": "asistente-v1-cb544a468f18",
+        "fuentes": [],
+        "accion": null,
+        "datos": {},
+        "respuesta": "Solo puedo orientar sobre el catálogo y las solicitudes de esta demostración de óptica. Esa pregunta está fuera de mi dominio."
+      }
+    },
+    {
+      "mensaje": "qué paquete me recomiendas",
+      "resultado": {
+        "intencion": "recomendar",
+        "confianza_intencion": 0.398865,
+        "version_asistente": "asistente-v1-cb544a468f18",
+        "fuentes": [],
+        "accion": "abrir_recomendador",
+        "datos": {},
+        "respuesta": "Para elegir un paquete hay que completar las cinco entradas del perfil. Abre Mi recomendación: el modelo de P1 y sus reglas calcularán el resultado. No deduzco un paquete solo de tu mensaje."
+      }
+    }
+  ]
+}

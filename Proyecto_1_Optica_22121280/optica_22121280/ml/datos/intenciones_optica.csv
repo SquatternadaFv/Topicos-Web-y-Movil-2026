@@ -1,0 +1,161 @@
+id,texto,intencion,origen
+saludo-01,hola,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-02,buenos días,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-03,buenas tardes,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-04,buenas noches,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-05,hola lúmina,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-06,saludos,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-07,qué tal,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-08,hola asistente,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-09,buen día quiero ayuda,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-10,hola necesito orientación,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-11,buenas óptica,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-12,hey hola,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-13,mucho gusto,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-14,hola de nuevo,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-15,hola me puedes ayudar,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-16,quiero saludarte,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-17,hola buen día,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-18,saludos al asistente,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-19,hola cómo estás,saludo,redacción académica propia asistida; sin conversaciones reales
+saludo-20,buenas necesito ayuda,saludo,redacción académica propia asistida; sin conversaciones reales
+catalogo-01,qué paquetes ofrecen,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-02,quiero ver el catálogo,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-03,muéstrame todos los paquetes,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-04,cuáles son sus opciones,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-05,qué venden en lúmina,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-06,lista de tratamientos disponibles,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-07,qué opciones de lentes tienen,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-08,puedo ver los productos,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-09,ver precios de los paquetes,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-10,catálogo de paquetes de óptica,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-11,qué paquetes están activos,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-12,mostrar opciones comerciales,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-13,lista de paquetes y precios,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-14,cuáles tratamientos manejan,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-15,enséñame el catálogo de la óptica,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-16,qué paquetes hay para comprar,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-17,tienen opciones de lentes,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-18,dame la lista de productos,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-19,consultar catálogo completo,catalogo,redacción académica propia asistida; sin conversaciones reales
+catalogo-20,ver todas las opciones de la tienda,catalogo,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-01,cuánto cuesta claridad,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-02,qué incluye esencial,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-03,dame detalles de integral,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-04,quiero información de transición,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-05,qué tratamientos incluye claridad,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-06,cuál es el precio de esencial,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-07,explícame el paquete premium,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-08,el fotocromático está disponible,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-09,qué contiene el paquete antirreflejante,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-10,descripción del paquete esencial,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-11,detalles del producto claridad,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-12,tienen disponible integral,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-13,consultar precio de transición,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-14,características del paquete premium,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-15,incluye fotocromático integral,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-16,cuánto vale el paquete claridad,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-17,información específica de esencial,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-18,precio actual de integral,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-19,qué lleva el tratamiento fotocromático,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+detalle_producto-20,ficha del paquete transición,detalle_producto,redacción académica propia asistida; sin conversaciones reales
+seguimiento-01,cómo va mi orden,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-02,consultar mi folio <folio>,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-03,rastrear solicitud <folio>,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-04,cuál es el estado de mi pedido,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-05,ya registraron mi solicitud,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-06,buscar orden por folio,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-07,dónde consulto mi orden,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-08,ver mi solicitud registrada,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-09,consulta el estado del folio <folio>,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-10,quiero rastrear mi orden,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-11,cómo está mi solicitud <folio>,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-12,revisar estado de mi pedido <folio>,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-13,muéstrame mi orden <folio>,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-14,en qué estado está mi folio,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-15,mi solicitud ya está registrada,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-16,buscar el pedido <folio>,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-17,seguimiento de mi solicitud,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-18,consulta de pedido por folio,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-19,necesito el estado de mi orden,seguimiento,redacción académica propia asistida; sin conversaciones reales
+seguimiento-20,rastrear el folio de mi solicitud,seguimiento,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-01,por qué me salió esencial,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-02,explica la recomendación de mi folio,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-03,por qué el modelo eligió claridad,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-04,por qué cambiaron mi paquete,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-05,cuál fue el motivo de la corrección,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-06,explica las reglas de mi orden <folio>,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-07,por qué descartaron premium,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-08,por qué bajó la confianza de mi recomendación,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-09,explicación de mi resultado,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-10,qué pasó con el ranking de mi solicitud,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-11,por qué terminé con esencial si el modelo dijo claridad,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-12,quiero saber por qué recomendaron ese paquete,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-13,motivo guardado del folio <folio>,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-14,explica mi orden <folio>,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-15,qué regla corrigió mi resultado,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-16,por qué mi presupuesto cambió la sugerencia,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-17,razón del paquete asignado,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-18,explícame el resultado de mi orden,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-19,qué significa la corrección en mi folio,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+explicar_recomendacion-20,por qué esa alternativa fue descartada,explicar_recomendacion,redacción académica propia asistida; sin conversaciones reales
+recomendar-01,qué paquete me recomiendas,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-02,quiero una recomendación nueva,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-03,ayúdame a elegir lentes,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-04,necesito elegir un tratamiento,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-05,tengo setecientos pesos qué me conviene,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-06,trabajo frente a pantalla qué paquete elijo,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-07,recomiéndame un paquete,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-08,quiero usar el recomendador,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-09,calcular una sugerencia para mi perfil,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-10,cuál paquete se adapta a mi presupuesto,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-11,elegir un paquete según mis preferencias,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-12,buscar una opción que me convenga,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-13,quisiera que el modelo evalúe mi perfil,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-14,necesito una sugerencia comercial,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-15,quiero completar el perfil para recomendar,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-16,qué opción sería adecuada para mí,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-17,obtener recomendación con mis datos,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-18,cómo encuentro mi paquete,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-19,quiero escoger entre los paquetes,recomendar,redacción académica propia asistida; sin conversaciones reales
+recomendar-20,puedes recomendarme una opción,recomendar,redacción académica propia asistida; sin conversaciones reales
+politicas-01,cuál es el horario de atención,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-02,cómo limpio mis lentes,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-03,cómo se recoge una solicitud,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-04,qué significa una garantía en esta demo,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-05,la óptica calcula mi graduación,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-06,el asistente puede darme un diagnóstico,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-07,cómo funciona el registro de una orden,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-08,qué diferencia hay entre recomendación y receta,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-09,cómo cuido el armazón,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-10,cómo puedo consultar el horario,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-11,cuándo atiende la tienda de demostración,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-12,cuáles son las condiciones del prototipo,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-13,información sobre retiro de solicitudes,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-14,qué dice su guía de cuidados,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-15,qué puede y qué no puede hacer la aplicación,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-16,política de privacidad de la demostración,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-17,qué datos personales guarda el prototipo,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-18,en qué consiste el proceso de atención,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-19,información de garantía y devoluciones,politicas,redacción académica propia asistida; sin conversaciones reales
+politicas-20,quiero leer las políticas públicas,politicas,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-01,quién ganó el partido de fútbol,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-02,dame una receta de pastel,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-03,compra acciones de una empresa,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-04,cuéntame la historia de roma,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-05,recomiéndame una película,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-06,cuánto es la raíz cuadrada de nueve,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-07,qué clima hay en marte,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-08,haz mi tarea de matemáticas,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-09,qué celular debería comprar,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-10,quién es el presidente de otro país,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-11,escribe un poema sobre el mar,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-12,dime el precio del bitcoin,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-13,cómo reparo el motor del coche,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-14,traduce una canción al inglés,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-15,cuál equipo ganó el torneo,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-16,enséñame a cocinar arroz,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-17,quiero reservar un hotel,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-18,qué computadora compro para videojuegos,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-19,resuelve mi ecuación diferencial,fuera_dominio,redacción académica propia asistida; sin conversaciones reales
+fuera_dominio-20,dame noticias internacionales,fuera_dominio,redacción académica propia asistida; sin conversaciones reales

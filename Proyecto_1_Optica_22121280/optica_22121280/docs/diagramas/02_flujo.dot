@@ -1,0 +1,14 @@
+digraph G {graph [bgcolor="white", pad="0.35", nodesep="0.35", ranksep="0.5"]; node [shape=box, style="rounded,filled", fillcolor="#EAF1E8", color="#163B38", fontname="DejaVu Sans", fontsize=12, margin="0.2,0.14"]; edge [color="#45685E", fontname="DejaVu Sans", fontsize=10];rankdir=TB;
+ perfil [label="Formulario validado en Flutter"];
+ validar [label="POST /recomendaciones/\nValidación del servidor"];
+ modelo [label="Pipeline entrenado\npredict_proba → ranking"];
+ reglas [label="Evaluar cada alternativa\nPrecio + disponibilidad + preferencia"];
+ posible [shape=diamond,label="¿Hay opción\nelegible?",fillcolor="#FFF0CC"];
+ error [label="HTTP 422\nNo se guarda orden",fillcolor="#FFF0CC"];
+ mostrar [label="Mostrar original, final, confianza\ny motivo de corrección"];
+ confirmar [label="Confirmar → POST /ordenes/\nRecalcular en servidor + transacción"];
+ guardar [label="Guardar resultado + precio + versión\nRetornar folio UUID → consulta GET"];
+ perfil -> validar -> modelo -> reglas -> posible;
+ posible -> error [label="No"];posible -> mostrar [label="Sí"];
+ mostrar -> confirmar -> guardar;
+}

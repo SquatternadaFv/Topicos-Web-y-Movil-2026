@@ -1,0 +1,2 @@
+# Herramienta opcional de navegador; no es necesaria para ejecutar la aplicación.
+playwright==1.65.0

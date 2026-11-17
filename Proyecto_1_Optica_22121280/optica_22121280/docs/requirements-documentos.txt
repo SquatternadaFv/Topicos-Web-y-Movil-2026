@@ -1,0 +1,4 @@
+# Solo para regenerar los PDF y comprobar sus páginas; no son dependencias de la API.
+reportlab==5.1.0
+pillow==13.0.0
+pypdf==7.0.1

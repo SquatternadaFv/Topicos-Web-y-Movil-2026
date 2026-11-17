@@ -1,6 +1,8 @@
-# Actividades de Tópicos Web y Móvil
+# Actividades y proyectos de Tópicos Web y Móvil
 
-Eduardo Osvaldo Rodríguez Gutiérrez · 22121280. Complemento de las actividades de los apuntes, con corte al 13/11/2026. **Proyectos 1, 2 y 3 excluidos**, igual que las cinco auditorías adicionales de otros sistemas, conforme al alcance solicitado.
+Eduardo Osvaldo Rodríguez Gutiérrez · 22121280. Actividades de los apuntes revisadas al 13/11/2026 y **proyectos 1 y 2 de Lúmina Óptica incorporados el 17/11/2026**. Proyecto 3 y las cinco auditorías adicionales de otros sistemas quedan fuera del alcance solicitado.
+
+**Lúmina P1 + P2:** [empieza aquí](Proyecto_1_Optica_22121280/EMPIEZA_AQUI.md), [guía de defensa de 16 páginas](Proyecto_1_Optica_22121280/optica_22121280/docs/DEFENSA_PROYECTOS_1_Y_2.pdf), [instrucciones Android](Proyecto_1_Optica_22121280/optica_22121280/entrega_android/LEEME.md) y [descarga del APK](https://github.com/SquatternadaFv/Topicos-Web-y-Movil-2026/releases/download/lumina-p1-p2-v1.0.0-2026-11-17/Lumina-Optica-P1-P2.apk).
 
 El trabajo anterior se conserva. Las entregas de implementación individual y examen teórico de microservicios que ya estaban en GitHub se recuperaron también en esta copia local. Las ampliaciones escritas se elaboraron con asistencia y requieren revisión personal para poder defenderlas; las métricas, capturas y pruebas indicadas como ejecutadas se obtuvieron realmente aquí.
 

@@ -107,7 +107,7 @@ Las variables de `backend/.env.example` son ejemplos: el proyecto **no carga `.e
 
 ## Android
 
-**APK de P1 + P2 generado el 17/11/2026:** [Lumina-Optica-P1-P2.apk](entrega_android/Lumina-Optica-P1-P2.apk). Para abrirlo en el emulador de esta PC ejecuta **`ABRIR_ANDROID.cmd`** desde la raíz de la aplicación. Inicia el AVD, instala la app y conecta su puerto 8000 al mismo Django mediante `adb reverse`. Consulta [las instrucciones Android](entrega_android/LEEME.md) y [la validación específica](evidencias/VALIDACION_ANDROID_2026-11-17.md). El APK es debug para demostración, con firma verificada; el código fuente y comandos permiten regenerarlo.
+**APK de P1 + P2 generado el 17/11/2026:** [descargar Lumina-Optica-P1-P2.apk](https://github.com/SquatternadaFv/Topicos-Web-y-Movil-2026/releases/download/lumina-p1-p2-v1.0.0-2026-11-17/Lumina-Optica-P1-P2.apk). Guarda la descarga en `entrega_android/`. Para abrirlo en el emulador de esta PC ejecuta **`ABRIR_ANDROID.cmd`** desde la raíz de la aplicación. Inicia el AVD, instala la app y conecta su puerto 8000 al mismo Django mediante `adb reverse`. Consulta [las instrucciones Android](entrega_android/LEEME.md) y [la validación específica](evidencias/VALIDACION_ANDROID_2026-11-17.md). El APK es debug para demostración, con firma verificada; el código fuente y comandos permiten regenerarlo.
 
 Con el emulador activo:
 

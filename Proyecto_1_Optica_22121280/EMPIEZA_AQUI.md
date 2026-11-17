@@ -10,7 +10,7 @@ El código de ambos proyectos está integrado en [optica_22121280](optica_221212
 4. **Para abrir la aplicación:** ejecuta `optica_22121280\INICIAR_DEMO.cmd`. Sitio: http://127.0.0.1:5173. Conserva abierta su terminal; Ctrl+C detiene la demo.
 5. **Pruebas y capturas actuales:** [validación del 17/11](optica_22121280/evidencias/VALIDACION_P1_P2_2026-11-17.md) y carpeta `optica_22121280/evidencias/2026-11-17/`.
 6. **Instalación/regeneración en otro equipo:** [README](optica_22121280/README.md) y sección 14 de la guía.
-7. **App Android en el emulador:** ejecuta `optica_22121280\ABRIR_ANDROID.cmd`. [APK de P1 + P2](optica_22121280/entrega_android/Lumina-Optica-P1-P2.apk), [instrucciones](optica_22121280/entrega_android/LEEME.md) y [validación Android](optica_22121280/evidencias/VALIDACION_ANDROID_2026-11-17.md).
+7. **App Android en el emulador:** ejecuta `optica_22121280\ABRIR_ANDROID.cmd`. [Descargar APK de P1 + P2](https://github.com/SquatternadaFv/Topicos-Web-y-Movil-2026/releases/download/lumina-p1-p2-v1.0.0-2026-11-17/Lumina-Optica-P1-P2.apk), [instrucciones](optica_22121280/entrega_android/LEEME.md) y [validación Android](optica_22121280/evidencias/VALIDACION_ANDROID_2026-11-17.md). Guarda el APK descargado en `optica_22121280/entrega_android/`.
 
 Ya existían el [avance de análisis](optica_22121280/docs/Avance_Analisis_22121280.pdf), el [análisis original de patrones P1](optica_22121280/docs/Analisis_Patrones_22121280.pdf), la [guía de construcción P1](optica_22121280/docs/GUIA_CONSTRUCCION.md) y la [relación con los apuntes](optica_22121280/docs/RELACION_APUNTES.md). Los documentos conjuntos enlazados arriba describen la implementación actual del asistente.
 

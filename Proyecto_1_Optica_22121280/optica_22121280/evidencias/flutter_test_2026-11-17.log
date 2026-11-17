@@ -1,0 +1,9 @@
+00:00 +0: loading C:/TopicosMovilWeb/Topicos-Web-y-Movil-2026/Proyecto_1_Optica_22121280/optica_22121280/flutter_app/test/api_client_test.dart
+00:00 +0: C:/TopicosMovilWeb/Topicos-Web-y-Movil-2026/Proyecto_1_Optica_22121280/optica_22121280/flutter_app/test/api_client_test.dart: Codifica búsqueda y mapea catálogo real a modelos
+00:00 +1: C:/TopicosMovilWeb/Topicos-Web-y-Movil-2026/Proyecto_1_Optica_22121280/optica_22121280/flutter_app/test/api_client_test.dart: Confirmación envía entradas y clave; nunca precio calculado
+00:00 +2: C:/TopicosMovilWeb/Topicos-Web-y-Movil-2026/Proyecto_1_Optica_22121280/optica_22121280/flutter_app/test/api_client_test.dart: Error de negocio y error de red son legibles
+00:00 +3: C:/TopicosMovilWeb/Topicos-Web-y-Movil-2026/Proyecto_1_Optica_22121280/optica_22121280/flutter_app/test/chat_test.dart: Chat envía mensaje y folio, espera, muestra fuente y abre perfil
+00:01 +4: C:/TopicosMovilWeb/Topicos-Web-y-Movil-2026/Proyecto_1_Optica_22121280/optica_22121280/flutter_app/test/flow_test.dart: Perfil -> modelo corregido -> confirmación -> folio
+00:01 +5: C:/TopicosMovilWeb/Topicos-Web-y-Movil-2026/Proyecto_1_Optica_22121280/optica_22121280/flutter_app/test/flow_test.dart: Perfil -> modelo corregido -> confirmación -> folio
+00:01 +6: C:/TopicosMovilWeb/Topicos-Web-y-Movil-2026/Proyecto_1_Optica_22121280/optica_22121280/flutter_app/test/flow_test.dart: Formulario móvil rechaza presupuesto inválido antes de HTTP
+00:02 +7: All tests passed!

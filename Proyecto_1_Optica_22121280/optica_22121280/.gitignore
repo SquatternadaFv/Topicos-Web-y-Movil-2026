@@ -12,3 +12,8 @@ flutter_app/android/.gradle/
 .DS_Store
 .logs/
 *.apk
+!evidencias/django_test_2026-11-17.log
+!evidencias/flutter_analyze_2026-11-17.log
+!evidencias/flutter_test_2026-11-17.log
+!evidencias/flutter_build_2026-11-17.log
+!evidencias/android_build_2026-11-17.log

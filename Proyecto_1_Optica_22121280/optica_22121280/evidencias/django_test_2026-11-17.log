@@ -1,0 +1,19 @@
+.\.venv\Scripts\python.exe : Creating test database for alias 'default'...
+En línea: 2 Carácter: 22
++ ... ONUTF8='1'; .\.venv\Scripts\python.exe backend/manage.py test optica  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Creating test d...as 'default'...:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 5.132s
+
+OK
+Destroying test database for alias 'default'...
+
+Found 18 test(s).
+System check identified no issues (0 silenced).
+Catálogo demo listo: 4 paquetes. No se borraron órdenes.
+Catálogo demo listo: 4 paquetes. No se borraron órdenes.

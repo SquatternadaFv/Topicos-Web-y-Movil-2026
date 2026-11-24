@@ -21,7 +21,7 @@ Se revisaron los apartados nuevos [De Flutter web al celular](https://ealcaraz85
 | APK instalable que habla con la API | APK debug con firma verificada, catálogo, recomendación, folio y chat comprobados en esta PC y teléfono. Los apuntes permiten explícitamente debug para demostrar en el salón |
 | Código, lockfile, Android y assets en Git | Incluidos; fuentes y fotografías locales también. Se excluyen compilaciones, `.dart_tool`, configuración de SDK, `.env`, claves y keystores |
 | Versión identificable del avance | `pubspec.yaml`: **1.1.0+2**; Android usa esos valores como versionName/versionCode |
-| Mismo historial para web y móvil | Rama local `revision-movil-2026-11-24` del repositorio principal; publicación remota pendiente. Se conserva el historial anterior |
+| Mismo historial para web y móvil | Avance publicado en `main` y en `revision-movil-2026-11-24`. Se conserva el historial anterior |
 
 La advertencia restante de doctor corresponde a Visual Studio para aplicaciones **Windows de escritorio**; no es requisito para web o Android. El paquete de herramientas se obtuvo del índice oficial de Google y se verificó contra su checksum. La descarga actual de los apuntes devolvió HTTP 200, `Last-Modified: 24/11/2026 04:44:58 GMT` y SHA-256 `6a170f78801f94c4219577584fbbaeec7243b1a6d2a95187b5e827fbad29ca7d`.
 
@@ -44,8 +44,8 @@ Ejecuta Git desde la raíz **Topicos-Web-y-Movil-2026**, donde está el remoto `
 ```powershell
 # Desde Topicos-Web-y-Movil-2026, con el trabajo local previamente guardado:
 git status
-# pull aplica cuando la rama ya está publicada y tiene seguimiento remoto.
-# La rama local revision-movil-2026-11-24 todavía no tiene ese seguimiento.
+git fetch origin
+git switch main
 git pull --ff-only
 cd Proyecto_1_Optica_22121280/optica_22121280/flutter_app
 flutter pub get
@@ -61,7 +61,7 @@ adb reverse tcp:8000 tcp:8000
 flutter build apk --release --dart-define=API_BASE_URL=https://TU_API/api
 ```
 
-`flutter clean` es opcional y se reserva para problemas de caché. `pubspec.lock` se conserva en Git. La rama del 24/11 es local: el remoto y su release del 17/11 todavía tienen el diseño anterior; no se afirma que `git pull` ya distribuya el avance nuevo. Para publicarlo después, revisar los commits y subir la rama con `git push -u origin revision-movil-2026-11-24`.
+`flutter clean` es opcional y se reserva para problemas de caché. `pubspec.lock` se conserva en Git. El avance está [publicado en main](https://github.com/SquatternadaFv/Topicos-Web-y-Movil-2026/tree/main) y también en `revision-movil-2026-11-24`; `git pull --ff-only` permite traerlo al repositorio actualizado. La [entrega Android 1.1.0+2](https://github.com/SquatternadaFv/Topicos-Web-y-Movil-2026/releases/tag/lumina-p1-p2-v1.1.0-2026-11-24) adjunta APK, SHA-256 y manifiesto. La entrega del 17/11 se conserva como antecedente.
 
 Se comprobó un clon nuevo del commit **`0bdbeba`**: dependencias resueltas con `flutter pub get --offline`, `flutter analyze` sin avisos, once pruebas aprobadas y APK debug 1.1.0+2 compilada. Esa APK, no una copia de la build anterior, se instaló con `adb install -r` en el realme; Android confirmó versionName 1.1.0, versionCode 2 y el túnel al puerto 8000. Los comandos y resultados están en [validacion_clon.json](evidencias/2026-11-24/configuracion/validacion_clon.json) y [telefono_1_1_0.json](evidencias/2026-11-24/configuracion/telefono_1_1_0.json). El JSON de entrega incluye commit de origen, versión y SHA-256 para identificar el binario.
 
@@ -81,7 +81,7 @@ Se mantienen los cuatro paquetes: la consigna pide catálogo coherente, listado,
 
 Fotos utilizadas bajo la [licencia de Pexels](https://www.pexels.com/license/): [Esencial, Pixabay](https://www.pexels.com/photo/gold-framed-eye-glasses-53177/), [Claridad, Saliem Moeslan](https://www.pexels.com/photo/close-up-shot-of-a-pair-of-eyeglasses-13430489/), [Transición, Evgeniy Alekseyev](https://www.pexels.com/photo/a-close-up-shot-of-an-eyeglasses-on-white-surface-7357976/), [Integral, Curtis Adams](https://www.pexels.com/photo/close-up-of-eyeglasses-17246017/) y [portada, Evgeniy Alekseyev](https://www.pexels.com/photo/eyeglasses-in-close-up-shot-7357970/). `assets/images/sources.json` conserva fuentes, autores, fecha y enlaces de descarga.
 
-Para verlo, ejecuta `INICIAR_DEMO.cmd`. El APK actualizado se genera localmente en `entrega_android/Lumina-Optica-P1-P2.apk`; la release enlazada del 17/11 conserva el diseño anterior. Las capturas del rediseño y el recorrido real se guardan en `evidencias/2026-11-24/`. Se ejecutaron 11 pruebas Flutter, incluida navegación a 320, 390, 900 y 1440 px, y el recorrido Chrome con catálogo, recomendación, registro, consulta de folio y asistente.
+Para verlo, ejecuta `INICIAR_DEMO.cmd`. El APK actualizado se genera localmente en `entrega_android/Lumina-Optica-P1-P2.apk` y está adjunto a la entrega 1.1.0+2 del 24/11. Las capturas del rediseño y el recorrido real se guardan en `evidencias/2026-11-24/`. Se ejecutaron 11 pruebas Flutter, incluida navegación a 320, 390, 900 y 1440 px, y el recorrido Chrome con catálogo, recomendación, registro, consulta de folio y asistente.
 
 **Cuentas y pagos según la consigna:** en la copia de los apuntes consultada el 17/11, los apartados [P1](https://ealcaraz85.github.io/topicoswebmobil/#orgd85c21d) y [P2](https://ealcaraz85.github.io/topicoswebmobil/#orga05f98b) no enumeran registro/inicio de sesión de usuarios. P1 pide registrar la operación con folio y añade la consulta GET por folio; P2 conserva esa búsqueda y la integra con el asistente. «Registrar la operación» significa guardar una solicitud, no crear una cuenta. La [consideración final de P3](https://ealcaraz85.github.io/topicoswebmobil/#org6560959) aclara expresamente: «No se pide publicar en tiendas ni pagos reales». El seguimiento por folio no necesita una pasarela de pagos. Esto describe el texto disponible, sin asumir instrucciones verbales posteriores.
 
@@ -184,7 +184,7 @@ Las variables de `backend/.env.example` son ejemplos: el proyecto **no carga `.e
 
 ## Android
 
-**APK de P1 + P2 generado el 17/11/2026:** [descargar Lumina-Optica-P1-P2.apk](https://github.com/SquatternadaFv/Topicos-Web-y-Movil-2026/releases/download/lumina-p1-p2-v1.0.0-2026-11-17/Lumina-Optica-P1-P2.apk). Guarda la descarga en `entrega_android/`. Para abrirlo en el emulador de esta PC ejecuta **`ABRIR_ANDROID.cmd`** desde la raíz de la aplicación. Inicia el AVD, instala la app y conecta su puerto 8000 al mismo Django mediante `adb reverse`. Consulta [las instrucciones Android](entrega_android/LEEME.md) y [la validación específica](evidencias/VALIDACION_ANDROID_2026-11-17.md). El APK es debug para demostración, con firma verificada; el código fuente y comandos permiten regenerarlo.
+**APK actual de P1 + P2: 1.1.0+2, del 24/11/2026:** [descargar Lumina-Optica-P1-P2.apk](https://github.com/SquatternadaFv/Topicos-Web-y-Movil-2026/releases/download/lumina-p1-p2-v1.1.0-2026-11-24/Lumina-Optica-P1-P2.apk). Guarda la descarga en `entrega_android/`. Para abrirlo en el emulador de esta PC ejecuta **`ABRIR_ANDROID.cmd`** desde la raíz de la aplicación. Inicia el AVD, instala la app y conecta su puerto 8000 al mismo Django mediante `adb reverse`. Consulta [las instrucciones Android](entrega_android/LEEME.md) y [la verificación actual del teléfono](evidencias/2026-11-24/configuracion/telefono_1_1_0.json). El APK es debug para demostración, con firma verificada; el código fuente y comandos permiten regenerarlo.
 
 Con el emulador activo:
 

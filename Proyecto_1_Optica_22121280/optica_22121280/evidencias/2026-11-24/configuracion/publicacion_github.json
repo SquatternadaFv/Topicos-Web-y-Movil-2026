@@ -1,0 +1,28 @@
+{
+  "source_commit": "0bdbebada8f3766febe0647806273e8a81ab21a9",
+  "publication_commit": "d86c6c453db17bd3b00cbc52ff93eccfc6d87197",
+  "tag": "lumina-p1-p2-v1.1.0-2026-11-24",
+  "release": "https://github.com/SquatternadaFv/Topicos-Web-y-Movil-2026/releases/tag/lumina-p1-p2-v1.1.0-2026-11-24",
+  "assets": [
+    {
+      "name": "Lumina-Optica-P1-P2.apk",
+      "bytes": 151658121,
+      "sha256": "259c752f21c190c36b79ba0204b9aea908f74c4ab57732a858d0733790aff555",
+      "url": "https://github.com/SquatternadaFv/Topicos-Web-y-Movil-2026/releases/download/lumina-p1-p2-v1.1.0-2026-11-24/Lumina-Optica-P1-P2.apk"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 91,
+      "sha256": "d673af1a38e71c0a99532edce43fff4fffd3fe3552f554cd3335b37a99d73a24",
+      "url": "https://github.com/SquatternadaFv/Topicos-Web-y-Movil-2026/releases/download/lumina-p1-p2-v1.1.0-2026-11-24/SHA256SUMS.txt"
+    },
+    {
+      "name": "apk_info.json",
+      "bytes": 850,
+      "sha256": "e182cba8325c791807aa865c030dc1c3614f7f796f47951ba1da03a15c30a1f4",
+      "url": "https://github.com/SquatternadaFv/Topicos-Web-y-Movil-2026/releases/download/lumina-p1-p2-v1.1.0-2026-11-24/apk_info.json"
+    }
+  ],
+  "publicada": true,
+  "prerelease_demo": true
+}

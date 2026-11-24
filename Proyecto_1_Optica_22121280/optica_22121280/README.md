@@ -8,6 +8,65 @@ Sistema académico que recomienda un **paquete de lentes y tratamientos comercia
 
 **Revisión conjunta del 17/11/2026:** P1 se conserva y P2 añade un asistente entrenado dentro de la misma aplicación. Para estudiar y exponer utiliza la [guía detallada de ambos proyectos](docs/DEFENSA_PROYECTOS_1_Y_2.md), disponible también en [PDF](docs/DEFENSA_PROYECTOS_1_Y_2.pdf), con arquitectura, datos, entrenamiento, contratos y 50 preguntas de defensa. Consulta la [matriz conjunta](docs/MATRIZ_PROYECTOS_1_Y_2.md), el [análisis de patrones actualizado de dos páginas](docs/ANALISIS_PATRONES_P1_P2.pdf) y la [validación actual](evidencias/VALIDACION_P1_P2_2026-11-17.md). Los informes `Avance_Analisis_22121280.pdf`, `Analisis_Patrones_22121280.pdf` y `GUIA_CONSTRUCCION.md` ya existían y explican P1.
 
+## Configuración móvil y Git: apuntes actualizados el 24/11/2026
+
+Se revisaron los apartados nuevos [De Flutter web al celular](https://ealcaraz85.github.io/topicoswebmobil/#org6a74d56), [Actualizar la app con Git](https://ealcaraz85.github.io/topicoswebmobil/#org0999286) y las indicaciones de [desarrollo con IA](https://ealcaraz85.github.io/topicoswebmobil/#orgb12d96e). La revisión cubre configuración, reproducción y documentación de Lúmina P1/P2; la auditoría con IA local se trabajará posteriormente. No se presenta como implementación del proyecto de equipo P3.
+
+| Indicación de los apuntes | Estado de Lúmina |
+|---|---|
+| Mismo cliente para web y Android | `flutter_app/lib/` compartido; Django, modelos y corpus permanecen en el servidor |
+| Flutter estable, SDK Android, licencias y dispositivo | Flutter 3.47.9 stable / Dart 3.13.7; SDK 36, JDK de Android Studio y realme RMX3760 detectados. Se instalaron las Command-line Tools 23; `flutter doctor -v` ya marca Android en verde y licencias aceptadas |
+| Dirección de API configurable | `ApiClient.defaultUrl` usa `String.fromEnvironment('API_BASE_URL')`; equivale al nombre ilustrativo `API_BASE` de los apuntes |
+| Permiso de Internet y HTTP de laboratorio | INTERNET en el manifest principal; cleartext únicamente en `src/debug/AndroidManifest.xml`. Release requiere una API HTTPS |
+| APK instalable que habla con la API | APK debug con firma verificada, catálogo, recomendación, folio y chat comprobados en esta PC y teléfono. Los apuntes permiten explícitamente debug para demostrar en el salón |
+| Código, lockfile, Android y assets en Git | Incluidos; fuentes y fotografías locales también. Se excluyen compilaciones, `.dart_tool`, configuración de SDK, `.env`, claves y keystores |
+| Versión identificable del avance | `pubspec.yaml`: **1.1.0+2**; Android usa esos valores como versionName/versionCode |
+| Mismo historial para web y móvil | Rama local `revision-movil-2026-11-24` del repositorio principal; publicación remota pendiente. Se conserva el historial anterior |
+
+La advertencia restante de doctor corresponde a Visual Studio para aplicaciones **Windows de escritorio**; no es requisito para web o Android. El paquete de herramientas se obtuvo del índice oficial de Google y se verificó contra su checksum. La descarga actual de los apuntes devolvió HTTP 200, `Last-Modified: 24/11/2026 04:44:58 GMT` y SHA-256 `6a170f78801f94c4219577584fbbaeec7243b1a6d2a95187b5e827fbad29ca7d`.
+
+### URL por destino
+
+| Destino | `--dart-define=API_BASE_URL=...` | Backend |
+|---|---|---|
+| Chrome en esta PC | `http://127.0.0.1:8000/api` | Django local |
+| Emulador sin túnel | `http://10.0.2.2:8000/api` | Django accesible desde el emulador |
+| Teléfono por USB, método usado aquí | `http://127.0.0.1:8000/api` más `adb reverse tcp:8000 tcp:8000` | Django local; mantener USB y backend activos |
+| Teléfono por Wi-Fi | `http://IP_DE_LA_PC:8000/api` | `runserver 0.0.0.0:8000`, `DJANGO_ALLOWED_HOSTS` con esa IP y acceso de red permitido |
+| Release | `https://TU_API/api` | API HTTPS accesible; no usar el backend HTTP local con este artefacto |
+
+El túnel ADB es la razón por la que localhost funciona en la APK instalada; sin túnel debe cambiarse la URL. El nombre de la constante puede diferir del ejemplo del profesor; deben coincidir `--dart-define` y `String.fromEnvironment`.
+
+### Actualizar desde Git y reconstruir
+
+Ejecuta Git desde la raíz **Topicos-Web-y-Movil-2026**, donde está el remoto `origin`. Esta copia antigua también contiene un `.git` interno sin remoto, con un historial del 11/11. Windows impidió moverlo; se conserva intacto. Dentro de la carpeta de Lúmina usa `GIT_LUMINA.cmd status`, `GIT_LUMINA.cmd log` o `git -C RUTA_DEL_REPOSITORIO_PRINCIPAL ...` para evitar consultar ese historial antiguo. El `.git` interno no se distribuye al clonar el repositorio principal.
+
+```powershell
+# Desde Topicos-Web-y-Movil-2026, con el trabajo local previamente guardado:
+git status
+git pull --ff-only
+cd Proyecto_1_Optica_22121280/optica_22121280/flutter_app
+flutter pub get
+flutter analyze
+flutter test
+
+# Demostración local por USB; permite HTTP solo en debug:
+flutter build apk --debug --dart-define=API_BASE_URL=http://127.0.0.1:8000/api
+adb install -r build/app/outputs/flutter-apk/app-debug.apk
+adb reverse tcp:8000 tcp:8000
+
+# Empaquetado release, cuando exista una API HTTPS:
+flutter build apk --release --dart-define=API_BASE_URL=https://TU_API/api
+```
+
+`flutter clean` es opcional y se reserva para problemas de caché. `pubspec.lock` se conserva en Git. La rama del 24/11 es local: el remoto y su release del 17/11 todavía tienen el diseño anterior; no se afirma que `git pull` ya distribuya el avance nuevo. Para publicarlo después, revisar los commits y subir la rama con `git push -u origin revision-movil-2026-11-24`.
+
+### Uso de IA en este avance
+
+Se utilizó **OpenAI Codex** para implementar y revisar código, documentación, pruebas, rediseño y configuración bajo las indicaciones del estudiante. No se declara que esta asistencia haya usado Ollama ni una IA local. El apartado del profesor permite herramientas ya disponibles, incluido un plan de pago; no exige comprar uno.
+
+Los generadores de perfiles e intenciones, el entrenamiento scikit-learn y sus artefactos están en `ml/` y `backend/optica/modelo/`; los datos son sintéticos y específicos del dominio, no registros reales de clientes. Se ejecutaron entrenamiento y pruebas documentados en las evidencias; no se atribuyen a una revisión personal del estudiante las verificaciones que hizo el agente. Para la defensa, el estudiante debe revisar y poder explicar perfil → API → modelo/reglas → JSON → pantalla, así como los datos y las métricas. **No se ha realizado la auditoría con IA local de los apartados finales.**
+
 ## Rediseño web y Android · 24/11/2026
 
 La interfaz comparte una paleta marfil, ciruela y lavanda, portada editorial con fotografías reales de lentes, catálogo adaptable, navegación superior en escritorio e inferior en móvil. Se retiró la referencia P1/P2 del encabezado visible. Formulario, folio y asistente conservan la API existente. Las fuentes Roboto y su licencia se incluyen en `flutter_app/assets/fonts/`; la compilación web usa `--no-web-resources-cdn` para servir también CanvasKit localmente.

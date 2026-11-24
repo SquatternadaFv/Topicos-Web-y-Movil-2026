@@ -1,7 +1,7 @@
 name: optica_app
 description: Proyecto 1 individual de Eduardo Rodriguez, 22121280.
 publish_to: none
-version: 1.0.0+1
+version: 1.1.0+2
 environment:
   sdk: '>=3.8.0 <4.0.0'
 dependencies:

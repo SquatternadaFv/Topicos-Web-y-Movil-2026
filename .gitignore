@@ -21,4 +21,14 @@ flutter_export_environment.sh
 Thumbs.db
 .pytest_cache/
 .herramientas/
+.env
+.env.*
+!.env.example
+key.properties
+*.keystore
+*.jks
+.pub-cache/
+.pub/
+.cxx/
+coverage/
 /Proyecto_1_Optica_22121280/*.zip

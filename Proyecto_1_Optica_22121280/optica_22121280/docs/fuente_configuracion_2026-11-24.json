@@ -1,0 +1,15 @@
+{
+  "url": "https://ealcaraz85.github.io/topicoswebmobil/",
+  "consulta_utc": "2026-11-24T22:33:14.873091+00:00",
+  "http_status": 200,
+  "last_modified": "Tue, 24 Nov 2026 04:44:58 GMT",
+  "sha256_html": "6a170f78801f94c4219577584fbbaeec7243b1a6d2a95187b5e827fbad29ca7d",
+  "apartados": [
+    {"id": "org6a74d56", "titulo": "De Flutter web al celular: app Android paso a paso"},
+    {"id": "org0999286", "titulo": "Actualizar la app con Git y volver a construir el móvil"},
+    {"id": "orgb12d96e", "titulo": "Desarrollar el mismo proyecto con IA libre (sin costo)"}
+  ],
+  "alcance": "Configuración móvil, Git, reproducción y declaración del uso de IA de Lúmina P1/P2.",
+  "excluido": "La auditoría con IA local se realizará posteriormente. No se implementa P3 en esta revisión.",
+  "copia_html_local": "Fuera de la entrega, en C:/TopicosMovilWeb/.herramientas/apuntes_2026-11-24.html"
+}

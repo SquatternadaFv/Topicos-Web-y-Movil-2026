@@ -4,6 +4,8 @@
 
 El código de ambos proyectos está integrado en [optica_22121280](optica_22121280/README.md).
 
+**Configuración móvil y Git revisados contra los apuntes actualizados:** consulta el [contraste y los comandos](optica_22121280/README.md#configuración-móvil-y-git-apuntes-actualizados-el-24112026). La APK local actual es **1.1.0+2**, reconstruida desde un clon limpio e instalada en el realme. Los cambios del 24/11 están guardados en la rama local `revision-movil-2026-11-24`; la publicación en GitHub sigue pendiente. La auditoría con IA local se hará después.
+
 1. **Para estudiar y defender ambos proyectos:** [guía detallada en Markdown](optica_22121280/docs/DEFENSA_PROYECTOS_1_Y_2.md) o [PDF de 16 páginas](optica_22121280/docs/DEFENSA_PROYECTOS_1_Y_2.pdf). Incluye modelos, datos, entrenamiento, conexiones, API, límites y 50 preguntas de defensa.
 2. **Para demostrar cumplimiento de la consigna:** [matriz de requisitos P1/P2](optica_22121280/docs/MATRIZ_PROYECTOS_1_Y_2.md).
 3. **Apartado actualizado de patrones:** [PDF de dos páginas](optica_22121280/docs/ANALISIS_PATRONES_P1_P2.pdf) y [fuente editable](optica_22121280/docs/ANALISIS_PATRONES_P1_P2.md).

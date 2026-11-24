@@ -1,0 +1,14 @@
+{
+  "dispositivo": "realme RMX3760",
+  "paquete": [
+    "versionCode=2 minSdk=24 targetSdk=36",
+    "versionName=1.1.0",
+    "lastUpdateTime=2026-11-24 16:44:39"
+  ],
+  "actividad_reanudada": null,
+  "proceso_app": "11365",
+  "adb_reverse": "UsbFfs tcp:8000 tcp:8000",
+  "catalogo_http": 200,
+  "paquetes": 4,
+  "source_commit": "0bdbebada8f3766febe0647806273e8a81ab21a9"
+}

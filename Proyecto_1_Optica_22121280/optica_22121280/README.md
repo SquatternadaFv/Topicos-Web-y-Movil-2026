@@ -44,6 +44,8 @@ Ejecuta Git desde la raíz **Topicos-Web-y-Movil-2026**, donde está el remoto `
 ```powershell
 # Desde Topicos-Web-y-Movil-2026, con el trabajo local previamente guardado:
 git status
+# pull aplica cuando la rama ya está publicada y tiene seguimiento remoto.
+# La rama local revision-movil-2026-11-24 todavía no tiene ese seguimiento.
 git pull --ff-only
 cd Proyecto_1_Optica_22121280/optica_22121280/flutter_app
 flutter pub get
@@ -60,6 +62,10 @@ flutter build apk --release --dart-define=API_BASE_URL=https://TU_API/api
 ```
 
 `flutter clean` es opcional y se reserva para problemas de caché. `pubspec.lock` se conserva en Git. La rama del 24/11 es local: el remoto y su release del 17/11 todavía tienen el diseño anterior; no se afirma que `git pull` ya distribuya el avance nuevo. Para publicarlo después, revisar los commits y subir la rama con `git push -u origin revision-movil-2026-11-24`.
+
+Se comprobó un clon nuevo del commit **`0bdbeba`**: dependencias resueltas con `flutter pub get --offline`, `flutter analyze` sin avisos, once pruebas aprobadas y APK debug 1.1.0+2 compilada. Esa APK, no una copia de la build anterior, se instaló con `adb install -r` en el realme; Android confirmó versionName 1.1.0, versionCode 2 y el túnel al puerto 8000. Los comandos y resultados están en [validacion_clon.json](evidencias/2026-11-24/configuracion/validacion_clon.json) y [telefono_1_1_0.json](evidencias/2026-11-24/configuracion/telefono_1_1_0.json). El JSON de entrega incluye commit de origen, versión y SHA-256 para identificar el binario.
+
+También terminó correctamente `flutter build apk --release` desde ese clon (50.8 MB). Esta fue una comprobación de empaquetado con la dirección HTTPS reservada `https://example.invalid/api`; no es un servidor de Lúmina ni una release conectada a una API desplegada. No se instaló ese binario. La demostración funcional permanece en la APK debug con backend local, admitida por los apuntes. El clon terminó sin cambios en los archivos versionados.
 
 ### Uso de IA en este avance
 

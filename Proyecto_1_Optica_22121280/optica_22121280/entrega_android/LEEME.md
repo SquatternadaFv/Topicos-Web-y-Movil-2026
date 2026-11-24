@@ -2,6 +2,8 @@
 
 La misma aplicación Flutter incorpora catálogo, recomendador, órdenes/folio y asistente. El APK de demostración se llama **`Lumina-Optica-P1-P2.apk`**. Su firma y tipo son de depuración para revisión académica.
 
+**Versión actual: 1.1.0+2.** Reconstruida desde un clon limpio del commit `0bdbeba` de la rama local `revision-movil-2026-11-24`. Instalada y verificada en el realme RMX3760; usa el túnel USB al mismo Django. Consulta en el [README principal](../README.md#configuración-móvil-y-git-apuntes-actualizados-el-24112026) el contraste con los apuntes nuevos, los modos de URL y las instrucciones de Git. El docente permite APK debug para el salón; release necesita una API HTTPS y una firma propia únicamente si se publica en tienda.
+
 **Rediseño local del 24/11/2026:** el APK de esta carpeta incorpora la nueva paleta marfil/ciruela/lavanda, el encabezado sin P1/P2 y fotografías reales de referencia incluidas para uso sin internet. Usa este archivo con `ABRIR_ANDROID.cmd` o `INSTALAR_ANDROID.cmd`. `apk_info.json` y `SHA256SUMS.txt` identifican esta compilación; la descarga de GitHub indicada abajo es una versión anterior del 17/11 y reemplazar el archivo local con ella restaura el diseño anterior.
 
 **[Descargar el APK desde la release del repositorio](https://github.com/SquatternadaFv/Topicos-Web-y-Movil-2026/releases/download/lumina-p1-p2-v1.0.0-2026-11-17/Lumina-Optica-P1-P2.apk).** Colócalo en esta carpeta `entrega_android/` antes de ejecutar los accesos de instalación. Se distribuye como archivo adjunto de la release; el repositorio conserva el código, el manifiesto y los comandos para reconstruirlo.

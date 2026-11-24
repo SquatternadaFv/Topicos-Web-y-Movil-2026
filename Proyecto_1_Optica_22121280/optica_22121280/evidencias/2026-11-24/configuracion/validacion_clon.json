@@ -1,0 +1,91 @@
+{
+  "source_commit": "0bdbebada8f3766febe0647806273e8a81ab21a9",
+  "clone": "C:\\TopicosMovilWeb\\.herramientas\\lumina-clon-limpio-2026-11-24",
+  "version": "1.1.0+2",
+  "checks": [
+    {
+      "name": "doctor",
+      "command": [
+        "doctor",
+        "-v"
+      ],
+      "exit_code": 0,
+      "seconds": 2.8
+    },
+    {
+      "name": "pub_get",
+      "command": [
+        "pub",
+        "get",
+        "--offline"
+      ],
+      "exit_code": 0,
+      "seconds": 1.5
+    },
+    {
+      "name": "analyze",
+      "command": [
+        "analyze",
+        "--no-pub"
+      ],
+      "exit_code": 1,
+      "seconds": 20.5
+    },
+    {
+      "name": "analyze",
+      "source_commit": "0bdbebada8f3766febe0647806273e8a81ab21a9",
+      "command": [
+        "analyze",
+        "--no-pub"
+      ],
+      "exit_code": 0,
+      "seconds": 3.2
+    },
+    {
+      "name": "test",
+      "source_commit": "0bdbebada8f3766febe0647806273e8a81ab21a9",
+      "command": [
+        "test",
+        "--no-pub"
+      ],
+      "exit_code": 0,
+      "seconds": 12.1
+    },
+    {
+      "name": "apk_debug",
+      "source_commit": "0bdbebada8f3766febe0647806273e8a81ab21a9",
+      "command": [
+        "build",
+        "apk",
+        "--debug",
+        "--no-pub",
+        "--dart-define=API_BASE_URL=http://127.0.0.1:8000/api"
+      ],
+      "exit_code": 0,
+      "seconds": 24.0
+    },
+    {
+      "name": "apk_release",
+      "source_commit": "0bdbebada8f3766febe0647806273e8a81ab21a9",
+      "command": [
+        "build",
+        "apk",
+        "--release",
+        "--no-pub",
+        "--dart-define=API_BASE_URL=https://example.invalid/api"
+      ],
+      "exit_code": 0,
+      "seconds": 291.8
+    }
+  ],
+  "initial_source_commit": "7dc3e086629ff105430faecce69254077cc51867",
+  "release_api": "Placeholder HTTPS reserved for compilation only; release not installed against the local HTTP backend.",
+  "clone_git_status": "",
+  "release_artifact": {
+    "bytes": 53317957,
+    "sha256": "b6054199ed0aed27cc97f8ae1720cc3bd5d27d7b8cab4403c591695d3462e88b",
+    "type": "release; compilation only",
+    "installed": false
+  },
+  "android_toolchain": "Flutter doctor: Android toolchain green, licenses accepted; Visual Studio desktop warning unrelated to Android/web."
+}

@@ -83,24 +83,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              '01 / TU PERFIL',
-              style: TextStyle(color: ink, letterSpacing: 2, fontSize: 12),
+            const SectionIntro(
+              eyebrow: 'UNA ELECCIÓN PERSONAL',
+              title: 'Un paquete a tu medida.',
+              description:
+                  'Cuéntanos cómo es tu día. Te ayudamos a encontrar una opción según tu rutina, tus preferencias y tu presupuesto.',
             ),
-            const SizedBox(height: 14),
-            const Text(
-              'Un paquete a tu medida.',
-              style: TextStyle(
-                fontSize: 32,
-                color: ink,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            const SizedBox(height: 12),
-            const Text(
-              'Cuéntanos sobre tu rutina. La recomendación combina un modelo entrenado con reglas de presupuesto y disponibilidad.',
-            ),
-            const SizedBox(height: 28),
             TextFormField(
               key: const Key('pantalla'),
               controller: pantalla,
@@ -187,7 +175,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     )
                   : const Icon(Icons.auto_awesome),
               label: Text(
-                loading ? 'Consultando modelo…' : 'Obtener recomendación',
+                loading ? 'Buscando tu paquete…' : 'Obtener recomendación',
               ),
             ),
             const SizedBox(height: 20),

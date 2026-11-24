@@ -1,0 +1,47 @@
+[
+  {
+    "archivo": "esencial.jpg",
+    "autor": "Pixabay",
+    "pagina": "https://www.pexels.com/photo/gold-framed-eye-glasses-53177/",
+    "descarga": "https://images.pexels.com/photos/53177/glasses-fluke-angel-therapy-glasses-glass-golden-53177.jpeg?auto=compress&cs=tinysrgb&w=1600&q=85",
+    "licencia": "https://www.pexels.com/license/",
+    "fecha": "2026-11-24",
+    "bytes": 45569
+  },
+  {
+    "archivo": "antirreflejante.jpg",
+    "autor": "Saliem Moeslan",
+    "pagina": "https://www.pexels.com/photo/close-up-shot-of-a-pair-of-eyeglasses-13430489/",
+    "descarga": "https://images.pexels.com/photos/13430489/pexels-photo-13430489.jpeg?auto=compress&cs=tinysrgb&w=1600&q=85",
+    "licencia": "https://www.pexels.com/license/",
+    "fecha": "2026-11-24",
+    "bytes": 91703
+  },
+  {
+    "archivo": "fotocromatico.jpg",
+    "autor": "Evgeniy Alekseyev",
+    "pagina": "https://www.pexels.com/photo/a-close-up-shot-of-an-eyeglasses-on-white-surface-7357976/",
+    "descarga": "https://images.pexels.com/photos/7357976/pexels-photo-7357976.jpeg?auto=compress&cs=tinysrgb&w=1600&q=85",
+    "licencia": "https://www.pexels.com/license/",
+    "fecha": "2026-11-24",
+    "bytes": 67865
+  },
+  {
+    "archivo": "premium.jpg",
+    "autor": "Curtis Adams",
+    "pagina": "https://www.pexels.com/photo/close-up-of-eyeglasses-17246017/",
+    "descarga": "https://images.pexels.com/photos/17246017/pexels-photo-17246017.jpeg?auto=compress&cs=tinysrgb&w=1600&q=85",
+    "licencia": "https://www.pexels.com/license/",
+    "fecha": "2026-11-24",
+    "bytes": 83994
+  },
+  {
+    "archivo": "portada.jpg",
+    "autor": "Evgeniy Alekseyev",
+    "pagina": "https://www.pexels.com/photo/eyeglasses-in-close-up-shot-7357970/",
+    "descarga": "https://images.pexels.com/photos/7357970/pexels-photo-7357970.jpeg?auto=compress&cs=tinysrgb&w=1600&q=85",
+    "licencia": "https://www.pexels.com/license/",
+    "fecha": "2026-11-24",
+    "bytes": 138993
+  }
+]

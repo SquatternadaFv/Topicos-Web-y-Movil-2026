@@ -1,0 +1,22 @@
+{
+  "fecha": "2026-11-24",
+  "archivo": "Lumina-Optica-P1-P2.apk",
+  "bytes": 166397513,
+  "sha256": "8beaea65bd97a913a4ba50974c67a9762e2906177f595bb94d454ac4f239400f",
+  "package": "mx.edu.itm.optica_app",
+  "versionName": "1.0.0",
+  "versionCode": 1,
+  "tipo": "debug",
+  "minSdk": 24,
+  "targetSdk": 36,
+  "abis": [
+    "arm64-v8a",
+    "armeabi-v7a",
+    "x86_64"
+  ],
+  "API_BASE_URL": "http://127.0.0.1:8000/api",
+  "conexion_demo": "adb reverse tcp:8000 tcp:8000",
+  "firma_apksigner": "APK Signature Scheme v2 verificada",
+  "comando": "flutter build apk --debug --no-pub --dart-define=API_BASE_URL=http://127.0.0.1:8000/api",
+  "fotografias_locales": 5
+}

@@ -1,6 +1,6 @@
 # Proyectos 1 y 2 · Lúmina Óptica · 22121280
 
-Revisión actual: **17 de noviembre de 2026**.
+Último rediseño de web y Android: **24 de noviembre de 2026**. Se conserva la revisión académica del 17/11. El APK actualizado está en `optica_22121280/entrega_android/`; la release del 17/11 enlazada abajo tiene el diseño anterior. Consulta el [registro del rediseño y las aclaraciones sobre cuentas/pagos](optica_22121280/README.md#rediseño-web-y-android--24112026).
 
 El código de ambos proyectos está integrado en [optica_22121280](optica_22121280/README.md).
 

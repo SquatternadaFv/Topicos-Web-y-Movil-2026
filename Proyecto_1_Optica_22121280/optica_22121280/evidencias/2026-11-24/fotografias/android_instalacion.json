@@ -1,0 +1,12 @@
+{
+  "dispositivo": "realme RMX3760",
+  "instalacion": "Success",
+  "actividad": "topResumedActivity=ActivityRecord{dde427f u0 mx.edu.itm.optica_app/.MainActivity t495 d0}",
+  "fotos_en_apk": [
+    "assets/flutter_assets/assets/images/antirreflejante.jpg",
+    "assets/flutter_assets/assets/images/esencial.jpg",
+    "assets/flutter_assets/assets/images/fotocromatico.jpg",
+    "assets/flutter_assets/assets/images/portada.jpg",
+    "assets/flutter_assets/assets/images/premium.jpg"
+  ]
+}

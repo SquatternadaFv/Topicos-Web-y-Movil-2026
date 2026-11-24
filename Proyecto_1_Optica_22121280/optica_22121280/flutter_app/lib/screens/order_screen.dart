@@ -61,20 +61,12 @@ class _OrderLookupScreenState extends State<OrderLookupScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'TU SOLICITUD, A LA MANO',
-              style: TextStyle(letterSpacing: 2, color: ink, fontSize: 12),
+            const SectionIntro(
+              eyebrow: 'TU SOLICITUD, A LA MANO',
+              title: 'Consulta tu folio.',
+              description:
+                  'Recupera los detalles de tu elección. Solo necesitas el identificador que recibiste al registrar tu solicitud.',
             ),
-            const SizedBox(height: 16),
-            const Text(
-              'Consulta tu folio.',
-              style: TextStyle(fontSize: 34, color: ink),
-            ),
-            const SizedBox(height: 12),
-            const Text(
-              'Pega el identificador que recibiste al registrar tu solicitud.',
-            ),
-            const SizedBox(height: 28),
             TextFormField(
               controller: controller,
               decoration: const InputDecoration(

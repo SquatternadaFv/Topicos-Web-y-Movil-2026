@@ -24,10 +24,15 @@ def main():
     salida = args.salida.resolve()
     salida.mkdir(parents=True, exist_ok=True)
     errors = []
+    photos = set()
     with sync_playwright() as p:
         browser = p.chromium.launch(executable_path=args.chrome, headless=True)
         page = browser.new_page(viewport={'width': 1100, 'height': 1050})
         page.on('pageerror', lambda error: errors.append(str(error)))
+        def record_photo(response):
+            if '/assets/images/' in response.url and '.jpg' in response.url and response.status == 200:
+                photos.add(response.url.split('/')[-1].split('?')[0])
+        page.on('response', record_photo)
 
         def snap(name):
             page.wait_for_timeout(350)
@@ -51,8 +56,18 @@ def main():
             page.locator('flt-semantics-placeholder').wait_for(state='attached')
             page.locator('flt-semantics-placeholder').evaluate('(element) => element.click()')
             expect(page.get_by_role('button', name='Encontrar mi paquete')).to_be_visible()
-            expect(page.get_by_role('button', name='Claridad', exact=False)).to_be_visible()
+            # La portada editorial ocupa más alto; el catálogo sigue debajo.
+            expect(page.get_by_role('button', name='Claridad', exact=False)).to_be_attached()
             snap('10_chrome_inicio.png')
+            claridad = page.get_by_role('button', name='Claridad', exact=False)
+            claridad.scroll_into_view_if_needed()
+            snap('18_catalogo_fotografias.png')
+            claridad.click()
+            expect(page.get_by_role('heading', name='Detalle del paquete', exact=True)).to_be_visible()
+            expect(page.get_by_role('img', name='Foto de lentes con armazón negro', exact=True)).to_be_visible()
+            snap('19_detalle_fotografia.png')
+            page.get_by_role('button', name='Back', exact=True).click()
+            page.get_by_role('button', name='Encontrar mi paquete').scroll_into_view_if_needed()
             page.get_by_role('button', name='Encontrar mi paquete').click()
             expect(page.get_by_role('textbox', name='Presupuesto máximo (MXN)', exact=True)).to_be_visible()
             snap('11_chrome_formulario.png')
@@ -136,13 +151,15 @@ def main():
                 page.set_viewport_size({'width': 390, 'height': 844})
                 snap('27_chat_movil.png')
             assert not errors, errors
+            expected_photos = {'esencial.jpg', 'antirreflejante.jpg', 'fotocromatico.jpg', 'premium.jpg', 'portada.jpg'}
+            assert photos == expected_photos, f'Fotos no cargadas: {expected_photos - photos}'
             evidence = {'origen': 'Chrome headless / Flutter web compilado / Django y modelo reales',
                         'navegador': browser.version, 'folio': order['folio'],
                         'recomendacion': recommendation, 'orden': order,
                         'consulta_identica': True, 'sin_opciones_http': 422,
-                        'errores_javascript': errors, 'asistente': assistant}
+                        'errores_javascript': errors, 'fotografias_locales': sorted(photos), 'asistente': assistant}
             (salida / 'recorrido_chrome.json').write_text(json.dumps(evidence, ensure_ascii=False, indent=2), encoding='utf-8')
-            print(json.dumps({'estado': 'correcto', 'folio': order['folio'], 'capturas': 16 if args.con_asistente else 8, 'errores_javascript': errors}, ensure_ascii=False))
+            print(json.dumps({'estado': 'correcto', 'folio': order['folio'], 'capturas': 18 if args.con_asistente else 10, 'errores_javascript': errors}, ensure_ascii=False))
         except Exception:
             snap('chrome_revision_fallo.png')
             print(page.locator('body').aria_snapshot())

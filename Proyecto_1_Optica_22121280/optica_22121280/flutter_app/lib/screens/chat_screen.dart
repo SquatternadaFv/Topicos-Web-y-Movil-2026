@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../data/api_client.dart';
 import '../models/models.dart';
+import '../widgets/common.dart';
 
 class ChatScreen extends StatefulWidget {
   final ApiClient api;
@@ -85,9 +86,9 @@ class _ChatScreenState extends State<ChatScreen> {
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 6),
-          SelectionArea(
-            child: Text((item['usuario'] ?? item['respuesta']) as String),
-          ),
+            SelectionArea(
+              child: Text((item['usuario'] ?? item['respuesta']) as String),
+            ),
             for (final source in sources)
               Padding(
                 padding: const EdgeInsets.only(top: 8),
@@ -110,20 +111,22 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) => Center(
     child: ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 1000),
+      constraints: const BoxConstraints(maxWidth: 840),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+        padding: const EdgeInsets.fromLTRB(22, 24, 22, 12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
               'Tu asistente de óptica',
-              style: Theme.of(context).textTheme.titleLarge,
+              style: const TextStyle(
+                fontSize: 28,
+                color: ink,
+                letterSpacing: -1,
+              ),
             ),
             const SizedBox(height: 4),
-            const Text(
-              'Consulta paquetes, explica tu folio o abre el recomendador.',
-            ),
+            const Text('Un poco de orientación para elegir mejor.'),
             const SizedBox(height: 8),
             TextField(
               controller: folio,
@@ -152,7 +155,27 @@ class _ChatScreenState extends State<ChatScreen> {
             Expanded(
               child: messages.isEmpty
                   ? const Center(
-                      child: Text('Escribe un mensaje para comenzar.'),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.blur_on_rounded, size: 48, color: muted),
+                          SizedBox(height: 14),
+                          Text(
+                            'Hablemos de tu próxima mirada.',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 21,
+                              letterSpacing: -.5,
+                              color: ink,
+                            ),
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            'Escribe un mensaje para comenzar.',
+                            style: TextStyle(color: muted, fontSize: 12),
+                          ),
+                        ],
+                      ),
                     )
                   : ListView.builder(
                       controller: scroll,

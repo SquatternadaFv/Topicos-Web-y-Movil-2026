@@ -13,7 +13,7 @@ class RecommendationView extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      EyewearArt(code: result.paquete.codigo, height: 170),
+      EyewearPhoto(code: result.paquete.codigo, height: 170),
       const SizedBox(height: 20),
       const Text(
         'TU PAQUETE SUGERIDO',
@@ -42,9 +42,7 @@ class RecommendationView extends StatelessWidget {
       const SizedBox(height: 12),
       Card(
         elevation: 0,
-        color: result.corregido
-            ? const Color(0xFFFFEECF)
-            : const Color(0xFFE4EEE8),
+        color: result.corregido ? const Color(0xFFFFEECF) : lilac,
         child: Padding(
           padding: const EdgeInsets.all(18),
           child: Column(
@@ -160,7 +158,7 @@ class _ResultScreenState extends State<ResultScreen> {
       builder: (context) => AlertDialog(
         title: const Text('Registrar solicitud'),
         content: const Text(
-          'El servidor volverá a comprobar el perfil, el precio y la disponibilidad. La confirmación guardará la decisión vigente y te dará un folio.',
+          'Confirma tu solicitud con el precio y la disponibilidad vigentes. Recibirás un folio para consultarla después. No se realizará ningún cobro.',
         ),
         actions: [
           TextButton(
